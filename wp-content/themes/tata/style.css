@@ -1,0 +1,177 @@
+/*   
+Theme Name: TATA
+Theme URI: https://vk.com/id12194648
+Version: 3.0
+Tags: clean, development, html5, bootstrap
+Description: Clean wordpress theme with minimal bootstrap3 markup for fast development starting
+Author: MihaIleh
+Author URI: 
+*/
+.list_menu li.current_page_item a {
+    color: #277fbd;
+}
+.quantity {
+    vertical-align: top;
+}
+.btn_big_product_txt a {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 25px;
+}
+form.cart button.orng_btn {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 25px;
+}
+a.next.page-numbers {
+    background-color: #0099ce;
+    border-color: #0099CE;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+a.prev.page-numbers {
+    background-color: #0099ce;
+    border-color: #0099CE;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+span.page-numbers.current {
+    border: 2px solid #007FC0;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0 3px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #277fbd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    height: 30px;
+    width: 30px;
+    line-height: 26px;
+}
+table.characteristics tbody tr td {
+    text-transform: inherit;
+}
+.review .description p {
+    font-size: 13px;
+    line-height: 18.85px;
+}
+.displaynone {
+    display: none;
+}
+.info_product table.characteristics td {
+    padding: 3px 0;
+}
+i.fa.fa-chevron-down {
+    color: #277fbd;
+    font-size: 12px;
+}
+.reset_filter:before {
+    position: absolute;
+    left: 12%;
+    content: "\f00d";
+    font-family: FontAwesome;
+    text-align: center;
+    font-size: 18px;
+    margin-top: -2px;
+}
+a.next.page-numbers:after {
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    left: 36%;
+    content: "\f054";
+    font-family: FontAwesome;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+a.prev.page-numbers:after {
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    left: 30%;
+    content: "\f053";
+    font-family: FontAwesome;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+.view1:before {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 0;
+    content: "\f009";
+    font-family: FontAwesome;
+    text-align: center;
+    color: #bdbdbd;
+    font-size: 22px;;
+}
+.view1:hover:before {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 0;
+    content: "\f009";
+    font-family: FontAwesome;
+    text-align: center;
+    color: #3b8ac1;
+    font-size: 22px;
+}
+.view2:before {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 0;
+    content: "\f03a";
+    font-family: FontAwesome;
+    text-align: center;
+    color: #bdbdbd;
+    font-size: 22px;;
+}
+.view2:hover:before {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 0;
+    content: "\f03a";
+    font-family: FontAwesome;
+    text-align: center;
+    color: #3b8ac1;
+    font-size: 22px;
+}
+button.open_mob_nav:before {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 0;
+    content: "\f0c9";
+    text-align: center;
+    color: #3b8ac1;
+    font-size: 22px;
+    font-family: FontAwesome;
+}
+.cart-collaterals {
+    min-height: 40px;
+}
+span.woocommerce-Price-amount.amount {
+    float: left;
+}
+a.remove i {
+    color: #000;
+}
+form .quantity {
+    margin-bottom: 20px;
+	 margin-top: 20px;
+}
+form.cart button.orng_btn {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 25px;
+}
+input.button.hidden {
+    display: none;
+}

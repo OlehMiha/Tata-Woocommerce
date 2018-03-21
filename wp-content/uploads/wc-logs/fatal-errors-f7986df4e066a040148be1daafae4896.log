@@ -1,0 +1,36 @@
+2017-12-03T19:10:26-05:00 CRITICAL Uncaught exception 'WC_Data_Exception' with message 'Неверный адрес эл. почты для выставления счета' in /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:745
+Stack trace:
+#0 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/class-wc-order.php(1003): WC_Data->error('order_invalid_b...', '???????????????...')
+#1 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/legacy/abstract-wc-legacy-order.php(337): WC_Order->set_billing_email('???? ??????????...')
+#2 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/buy-one-click-woocommerce/inc/javascript-class.php(94): WC_Abstract_Legacy_Order->set_address(Array, 'billing')
+#3 [internal function]: BuyJavaScript->ajaxBuyButtonForm('')
+#4 /var/www/www-root/data/www/three.wp-woo.ru/wp-includes/class-wp-hook.php(286): call_user_func_array(Array, Array)
+#5 /var/www/www-root/data/www/three.wp-woo.ru/
+
+2017-12-03T19:10:28-05:00 CRITICAL Uncaught exception 'WC_Data_Exception' with message 'Неверный адрес эл. почты для выставления счета' in /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:745
+Stack trace:
+#0 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/class-wc-order.php(1003): WC_Data->error('order_invalid_b...', '???????????????...')
+#1 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/legacy/abstract-wc-legacy-order.php(337): WC_Order->set_billing_email('???? ??????????...')
+#2 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/buy-one-click-woocommerce/inc/javascript-class.php(94): WC_Abstract_Legacy_Order->set_address(Array, 'billing')
+#3 [internal function]: BuyJavaScript->ajaxBuyButtonForm('')
+#4 /var/www/www-root/data/www/three.wp-woo.ru/wp-includes/class-wp-hook.php(286): call_user_func_array(Array, Array)
+#5 /var/www/www-root/data/www/three.wp-woo.ru/
+
+2017-12-03T19:10:29-05:00 CRITICAL Uncaught exception 'WC_Data_Exception' with message 'Неверный адрес эл. почты для выставления счета' in /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:745
+Stack trace:
+#0 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/class-wc-order.php(1003): WC_Data->error('order_invalid_b...', '???????????????...')
+#1 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/legacy/abstract-wc-legacy-order.php(337): WC_Order->set_billing_email('???? ??????????...')
+#2 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/buy-one-click-woocommerce/inc/javascript-class.php(94): WC_Abstract_Legacy_Order->set_address(Array, 'billing')
+#3 [internal function]: BuyJavaScript->ajaxBuyButtonForm('')
+#4 /var/www/www-root/data/www/three.wp-woo.ru/wp-includes/class-wp-hook.php(286): call_user_func_array(Array, Array)
+#5 /var/www/www-root/data/www/three.wp-woo.ru/
+
+2017-12-03T19:10:57-05:00 CRITICAL Uncaught exception 'WC_Data_Exception' with message 'Неверный адрес эл. почты для выставления счета' in /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:745
+Stack trace:
+#0 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/class-wc-order.php(1003): WC_Data->error('order_invalid_b...', '???????????????...')
+#1 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/woocommerce/includes/legacy/abstract-wc-legacy-order.php(337): WC_Order->set_billing_email('???? ??????????...')
+#2 /var/www/www-root/data/www/three.wp-woo.ru/wp-content/plugins/buy-one-click-woocommerce/inc/javascript-class.php(94): WC_Abstract_Legacy_Order->set_address(Array, 'billing')
+#3 [internal function]: BuyJavaScript->ajaxBuyButtonForm('')
+#4 /var/www/www-root/data/www/three.wp-woo.ru/wp-includes/class-wp-hook.php(286): call_user_func_array(Array, Array)
+#5 /var/www/www-root/data/www/three.wp-woo.ru/
+

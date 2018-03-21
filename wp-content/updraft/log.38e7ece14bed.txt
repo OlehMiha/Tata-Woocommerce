@@ -1,0 +1,235 @@
+0000.000 (0) Opened log file at time: Tue, 20 Mar 2018 17:51:01 +0000 on http://nova-vpn.webdesign.life
+0000.001 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.3 PHP: 5.6.30 (apache2handler, Linux dock3.beget.ru 4.9.80-0-beget-acl #1 SMP Fri Feb 16 17:06:10 MSK 2018 x86_64) MySQL: 5.7.20 WPLANG: ru_RU Server: Apache/2.4.10 (Unix) safe_mode: 0 max_execution_time: 900 memory_limit: 268435456 (used: 22.3M | 22.8M) multisite: N openssl: OpenSSL 1.0.2j  26 Sep 2016 mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.002 (0) Free space on disk containing Updraft's temporary directory: 25677.7 MB
+0000.003 (0) Tasks: Backup files: 1 (schedule: unset) Backup DB: 1 (schedule: unset)
+0000.004 (0) Semaphore (fd, wp_options) being initialised
+0000.007 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.008 (0) Set semaphore last lock (fd) time to 2018-03-20 17:51:01
+0000.009 (0) Semaphore lock (fd) complete
+0000.012 (0) Backup run: resumption=0, nonce=38e7ece14bed, begun at=1521568261 (0s ago), job type=backup
+0000.013 (0) Scheduling a resumption (1) after 300 seconds (1521568561) in case this run gets aborted
+0000.034 (0) Checking if we have a zip executable available
+0000.035 (0) Testing: /usr/bin/zip
+0000.055 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.056 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.057 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.057 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.058 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.073 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.074 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.075 (0) Working binary zip found: /usr/bin/zip
+0000.077 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.078 (0) Creation of backups of directories: beginning
+0000.080 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.161 (0) Total entities for the zip file: 572 directories, 3211 files (0 skipped as non-modified), 46.2 MB
+0000.165 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.168 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.172 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.176 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.179 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.180 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.6 MB, 3211 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.443 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: size is now: 2.20 MB
+0000.453 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 600 files added (on-disk size: 2255.4 KB)
+0000.458 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 700 files added (on-disk size: 2255.4 KB)
+0000.464 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 800 files added (on-disk size: 2255.4 KB)
+0000.470 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 900 files added (on-disk size: 2255.4 KB)
+0000.474 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1000 files added (on-disk size: 2255.4 KB)
+0000.476 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.7 MB, 3211 files batched, 501 (1002) added so far); re-opening (prior size: 2255.4 KB)
+0000.720 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: size is now: 3.60 MB
+0000.728 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1100 files added (on-disk size: 3708.2 KB)
+0000.733 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1200 files added (on-disk size: 3708.2 KB)
+0000.738 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1300 files added (on-disk size: 3708.2 KB)
+0000.743 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1400 files added (on-disk size: 3708.2 KB)
+0000.748 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1500 files added (on-disk size: 3708.2 KB)
+0000.749 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.3 MB, 3211 files batched, 501 (1503) added so far); re-opening (prior size: 3708.2 KB)
+0001.124 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: size is now: 7.00 MB
+0001.130 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1600 files added (on-disk size: 7120.9 KB)
+0001.133 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1700 files added (on-disk size: 7120.9 KB)
+0001.137 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1800 files added (on-disk size: 7120.9 KB)
+0001.140 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 1900 files added (on-disk size: 7120.9 KB)
+0001.144 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2000 files added (on-disk size: 7120.9 KB)
+0001.145 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.8 MB, 3211 files batched, 501 (2004) added so far); re-opening (prior size: 7120.9 KB)
+0001.304 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2100 files added (on-disk size: 8011.2 KB)
+0001.308 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2200 files added (on-disk size: 8011.2 KB)
+0001.311 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2300 files added (on-disk size: 8011.2 KB)
+0001.315 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2400 files added (on-disk size: 8011.2 KB)
+0001.318 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2500 files added (on-disk size: 8011.2 KB)
+0001.319 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.7 MB, 3211 files batched, 501 (2505) added so far); re-opening (prior size: 8011.2 KB)
+0001.832 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: size is now: 10.40 MB
+0001.838 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2600 files added (on-disk size: 10665.8 KB)
+0001.843 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2700 files added (on-disk size: 10665.8 KB)
+0001.847 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2800 files added (on-disk size: 10665.8 KB)
+0001.854 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 2900 files added (on-disk size: 10665.8 KB)
+0001.863 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 3000 files added (on-disk size: 10665.8 KB)
+0001.864 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.1 MB, 3211 files batched, 501 (3006) added so far); re-opening (prior size: 10665.8 KB)
+0002.575 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: size is now: 14.80 MB
+0002.581 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 3100 files added (on-disk size: 15133 KB)
+0002.585 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip.tmp: 3200 files added (on-disk size: 15133 KB)
+0002.905 (0) Created plugins zip (0) - 16625.7 KB in 2.8 s (5887.4 KB/s) (sha1: cecb5c9697024374b090e14b17188aa4f0d03bea, sha256: 220c65604af0319db87411ebec4e50f629981cf63f6a4389ef221c82899c6839)
+0002.908 (0) Beginning creation of dump of themes (split every: 400 MB)
+0002.916 (0) Total entities for the zip file: 29 directories, 278 files (0 skipped as non-modified), 7.4 MB
+0002.920 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0002.925 (0) Zip: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0003.037 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-themes.zip.tmp: size is now: 6.70 MB
+0003.122 (0) Created themes zip (0) - 6854.9 KB in 0.2 s (32204.4 KB/s) (sha1: c89d1670f6e10a524142d7191487ce069fd215f8, sha256: 37a3230da55f7d82b8dbcd1fee358e467b28171dc10b868a7f44291dc27b006f)
+0003.124 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0003.125 (0) Looking for candidates to back up in: /home/s/saharole/nova-vpn.webdesign.life/public_html/wp-content/uploads
+0003.126 (0) finding files: 2018: adding to list (1)
+0003.126 (0) finding files: wc-logs: adding to list (2)
+0003.127 (0) finding files: woocommerce_uploads: adding to list (3)
+0003.128 (0) finding files: 2017: adding to list (4)
+0003.128 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0003.133 (0) Total entities for the zip file: 12 directories, 89 files (0 skipped as non-modified), 6.2 MB
+0003.187 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-uploads.zip.tmp: size is now: 6.20 MB
+0003.269 (0) Created uploads zip (0) - 6350.4 KB in 0.1 s (45558.6 KB/s) (sha1: 29662c8762c37c3446d51c939b881d1ea6dd525f, sha256: 6cbfef174a83853f92ea9a61ee02778007741fd1735572050b9d1e00fde475e9)
+0003.272 (0) Beginning backup of other directories found in the content directory (index: 0)
+0003.273 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0003.274 (0) Looking for candidates to back up in: /home/s/saharole/nova-vpn.webdesign.life/public_html/wp-content
+0003.275 (0) finding files: themes: skipping: this is the themes directory
+0003.276 (0) finding files: uploads: skipping: this is the uploads directory
+0003.277 (0) finding files: upgrade: skipping: excluded by options
+0003.278 (0) finding files: ai1wm-backups: skipping: excluded by options (glob)
+0003.279 (0) finding files: languages: adding to list (1)
+0003.280 (0) finding files: plugins: skipping: this is the plugins directory
+0003.280 (0) finding files: updraft: skipping: this is the updraft directory
+0003.281 (0) finding files: index.php: adding to list (2)
+0003.286 (0) Total entities for the zip file: 3 directories, 23 files (0 skipped as non-modified), 3.7 MB
+0003.529 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-others.zip.tmp: size is now: 1.00 MB
+0003.810 (0) Created others zip (0) - 974.6 KB in 0.5 s (1849.7 KB/s) (sha1: cf65ebfad40897b7ade988c05d8b98711e3ccb29, sha256: 795905001c6b4b2f9ae749dc1da9f62beca1e34688b144b5a786249231b8a19a)
+0003.816 (0) Saving backup status to database (elements: 8)
+0003.819 (0) Beginning creation of database dump (WordPress DB)
+0003.822 (0) Testing: /usr/local/bin/mysqldump
+0003.856 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1199 bytes total)
+0003.857 (0) Working binary mysqldump found: /usr/local/bin/mysqldump
+0003.863 (0) Table wp_options: Total expected rows (approximate): 400
+0003.911 (0) Table wp_options: Total rows added: 400 in 0.05 seconds
+0003.912 (0) Table wp_options: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_options.table.gz - 187.4 KB)
+0003.916 (0) Table wp_users: Total expected rows (approximate): 0
+0003.917 (0) Table wp_users: Total rows added: 1 in 0.00 seconds
+0003.918 (0) Table wp_users: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_users.table.gz - 0.5 KB)
+0003.921 (0) Table wp_usermeta: Total expected rows (approximate): 27
+0003.923 (0) Table wp_usermeta: Total rows added: 27 in 0.00 seconds
+0003.924 (0) Table wp_usermeta: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_usermeta.table.gz - 1.6 KB)
+0003.927 (0) Table wp_commentmeta: Total expected rows (approximate): 6
+0003.929 (0) Table wp_commentmeta: Total rows added: 6 in 0.00 seconds
+0003.930 (0) Table wp_commentmeta: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0003.933 (0) Table wp_comments: Total expected rows (approximate): 6
+0003.935 (0) Table wp_comments: Total rows added: 6 in 0.00 seconds
+0003.936 (0) Table wp_comments: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_comments.table.gz - 1.3 KB)
+0003.939 (0) Table wp_links: Total expected rows (approximate): 0
+0003.941 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0003.941 (0) Table wp_links: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_links.table.gz - 0.4 KB)
+0003.944 (0) Table wp_postmeta: Total expected rows (approximate): 1537
+0003.974 (0) Table wp_postmeta: Total rows added: 1537 in 0.03 seconds
+0003.976 (0) Table wp_postmeta: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_postmeta.table.gz - 16.8 KB)
+0003.979 (0) Table wp_posts: Total expected rows (approximate): 100
+0003.990 (0) Table wp_posts: Total rows added: 100 in 0.01 seconds
+0003.992 (0) Table wp_posts: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_posts.table.gz - 8.6 KB)
+0003.995 (0) Table wp_term_relationships: Total expected rows (approximate): 163
+0003.998 (0) Table wp_term_relationships: Total rows added: 163 in 0.00 seconds
+0003.999 (0) Table wp_term_relationships: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_term_relationships.table.gz - 0.8 KB)
+0004.002 (0) Table wp_term_taxonomy: Total expected rows (approximate): 66
+0004.004 (0) Table wp_term_taxonomy: Total rows added: 66 in 0.00 seconds
+0004.005 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_term_taxonomy.table.gz - 1.6 KB)
+0004.008 (0) Table wp_termmeta: Total expected rows (approximate): 95
+0004.011 (0) Table wp_termmeta: Total rows added: 95 in 0.00 seconds
+0004.013 (0) Table wp_termmeta: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_termmeta.table.gz - 1 KB)
+0004.016 (0) Table wp_terms: Total expected rows (approximate): 66
+0004.019 (0) Table wp_terms: Total rows added: 66 in 0.00 seconds
+0004.020 (0) Table wp_terms: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_terms.table.gz - 1.6 KB)
+0004.023 (0) Table wp_woocommerce_order_itemmeta: Total expected rows (approximate): 54
+0004.026 (0) Table wp_woocommerce_order_itemmeta: Total rows added: 54 in 0.00 seconds
+0004.027 (0) Table wp_woocommerce_order_itemmeta: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_order_itemmeta.table.gz - 0.8 KB)
+0004.030 (0) Table wp_woocommerce_payment_tokenmeta: Total expected rows (approximate): 0
+0004.032 (0) Table wp_woocommerce_payment_tokenmeta: Total rows added: 0 in 0.00 seconds
+0004.033 (0) Table wp_woocommerce_payment_tokenmeta: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_payment_tokenmeta.table.gz - 0.4 KB)
+0004.036 (0) Table wp_woocommerce_api_keys: Total expected rows (approximate): 0
+0004.037 (0) Table wp_woocommerce_api_keys: Total rows added: 0 in 0.00 seconds
+0004.038 (0) Table wp_woocommerce_api_keys: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_api_keys.table.gz - 0.4 KB)
+0004.042 (0) Table wp_woocommerce_attribute_taxonomies: Total expected rows (approximate): 9
+0004.044 (0) Table wp_woocommerce_attribute_taxonomies: Total rows added: 9 in 0.00 seconds
+0004.052 (0) Table wp_woocommerce_attribute_taxonomies: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_attribute_taxonomies.table.gz - 0.7 KB)
+0004.055 (0) Table wp_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0004.057 (0) Table wp_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.00 seconds
+0004.058 (0) Table wp_woocommerce_downloadable_product_permissions: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_downloadable_product_permissions.table.gz - 0.5 KB)
+0004.061 (0) Table wp_woocommerce_log: Total expected rows (approximate): 0
+0004.063 (0) Table wp_woocommerce_log: Total rows added: 0 in 0.00 seconds
+0004.063 (0) Table wp_woocommerce_log: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_log.table.gz - 0.4 KB)
+0004.066 (0) Table wp_woocommerce_order_items: Total expected rows (approximate): 6
+0004.068 (0) Table wp_woocommerce_order_items: Total rows added: 6 in 0.00 seconds
+0004.069 (0) Table wp_woocommerce_order_items: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_order_items.table.gz - 0.5 KB)
+0004.072 (0) Table wp_woocommerce_payment_tokens: Total expected rows (approximate): 0
+0004.074 (0) Table wp_woocommerce_payment_tokens: Total rows added: 0 in 0.00 seconds
+0004.075 (0) Table wp_woocommerce_payment_tokens: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_payment_tokens.table.gz - 0.4 KB)
+0004.079 (0) Table wp_woocommerce_sessions: Total expected rows (approximate): 4
+0004.082 (0) Table wp_woocommerce_sessions: Total rows added: 4 in 0.00 seconds
+0004.083 (0) Table wp_woocommerce_sessions: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_sessions.table.gz - 2.2 KB)
+0004.088 (0) Table wp_woocommerce_shipping_zone_locations: Total expected rows (approximate): 3
+0004.090 (0) Table wp_woocommerce_shipping_zone_locations: Total rows added: 3 in 0.00 seconds
+0004.091 (0) Table wp_woocommerce_shipping_zone_locations: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_shipping_zone_locations.table.gz - 0.4 KB)
+0004.095 (0) Table wp_woocommerce_shipping_zone_methods: Total expected rows (approximate): 0
+0004.097 (0) Table wp_woocommerce_shipping_zone_methods: Total rows added: 1 in 0.00 seconds
+0004.098 (0) Table wp_woocommerce_shipping_zone_methods: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_shipping_zone_methods.table.gz - 0.4 KB)
+0004.101 (0) Table wp_woocommerce_shipping_zones: Total expected rows (approximate): 0
+0004.103 (0) Table wp_woocommerce_shipping_zones: Total rows added: 1 in 0.00 seconds
+0004.103 (0) Table wp_woocommerce_shipping_zones: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_shipping_zones.table.gz - 0.4 KB)
+0004.107 (0) Table wp_woocommerce_tax_rate_locations: Total expected rows (approximate): 0
+0004.108 (0) Table wp_woocommerce_tax_rate_locations: Total rows added: 0 in 0.00 seconds
+0004.109 (0) Table wp_woocommerce_tax_rate_locations: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_tax_rate_locations.table.gz - 0.4 KB)
+0004.112 (0) Table wp_woocommerce_tax_rates: Total expected rows (approximate): 0
+0004.114 (0) Table wp_woocommerce_tax_rates: Total rows added: 0 in 0.00 seconds
+0004.114 (0) Table wp_woocommerce_tax_rates: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_tax_rates.table.gz - 0.4 KB)
+0004.118 (0) Table wp_woof_query_cache: Total expected rows (approximate): 0
+0004.119 (0) Table wp_woof_query_cache: Total rows added: 0 in 0.00 seconds
+0004.120 (0) Table wp_woof_query_cache: finishing file (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woof_query_cache.table.gz - 0.3 KB)
+0004.123 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_options.table.gz (1/27): adding to final database dump
+0004.152 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_users.table.gz (2/27): adding to final database dump
+0004.153 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_usermeta.table.gz (3/27): adding to final database dump
+0004.154 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_commentmeta.table.gz (4/27): adding to final database dump
+0004.155 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_comments.table.gz (5/27): adding to final database dump
+0004.157 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_links.table.gz (6/27): adding to final database dump
+0004.157 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_postmeta.table.gz (7/27): adding to final database dump
+0004.169 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_posts.table.gz (8/27): adding to final database dump
+0004.174 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_term_relationships.table.gz (9/27): adding to final database dump
+0004.176 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_term_taxonomy.table.gz (10/27): adding to final database dump
+0004.178 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_termmeta.table.gz (11/27): adding to final database dump
+0004.180 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_terms.table.gz (12/27): adding to final database dump
+0004.182 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_order_itemmeta.table.gz (13/27): adding to final database dump
+0004.184 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_payment_tokenmeta.table.gz (14/27): adding to final database dump
+0004.185 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_api_keys.table.gz (15/27): adding to final database dump
+0004.186 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_attribute_taxonomies.table.gz (16/27): adding to final database dump
+0004.187 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_downloadable_product_permissions.table.gz (17/27): adding to final database dump
+0004.189 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_log.table.gz (18/27): adding to final database dump
+0004.190 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_order_items.table.gz (19/27): adding to final database dump
+0004.191 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_payment_tokens.table.gz (20/27): adding to final database dump
+0004.192 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_sessions.table.gz (21/27): adding to final database dump
+0004.194 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_shipping_zone_locations.table.gz (22/27): adding to final database dump
+0004.195 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_shipping_zone_methods.table.gz (23/27): adding to final database dump
+0004.196 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_shipping_zones.table.gz (24/27): adding to final database dump
+0004.197 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_tax_rate_locations.table.gz (25/27): adding to final database dump
+0004.198 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woocommerce_tax_rates.table.gz (26/27): adding to final database dump
+0004.199 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db-table-wp_woof_query_cache.table.gz (27/27): adding to final database dump
+0004.200 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db.gz: finished writing out complete database file (192 KB)
+0004.207 (0) Total database tables backed up: 27 (backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db.gz, size: 228323, sha256)
+0004.212 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0004.212 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0004.213 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0004.214 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-others.zip: others: This file has not yet been successfully uploaded: will queue
+0004.214 (0) backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db.gz: db: This file has not yet been successfully uploaded: will queue
+0004.215 (0) Saving backup history. Total backup size: 30.3 MB
+0004.218 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0004.220 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0004.221 (0) No remote despatch: user chose no remote backup service
+0004.223 (0) Recording as successfully uploaded: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-plugins.zip (5a10034d981d95cb6dd12b357a5caa35)
+0004.229 (0) Recording as successfully uploaded: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-themes.zip (108033ec96fe5ce2086d5c9b1c313a63)
+0004.234 (0) Recording as successfully uploaded: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-uploads.zip (2b3bfcdb55d5bc16a41ef4917c774cf2)
+0004.239 (0) Recording as successfully uploaded: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-others.zip (3ff60e1b5d4366136fe7ea3eb494c95f)
+0004.244 (0) Recording as successfully uploaded: backup_2018-03-20-2051_novavpnwebdesignlife_38e7ece14bed-db.gz (7747ef8a3d53f1208a016f7bb03fd424)
+0004.248 (0) Prune old backups from local store: nothing to do, since the user disabled local deletion and we are using local backups
+0004.249 (0) Resume backup (38e7ece14bed, 0): finish run
+0004.251 (0) Decremented the semaphore (fd) by 1
+0004.252 (0) Semaphore (fd) unlocked
+0004.253 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0004.257 (0) The backup apparently succeeded and is now complete
+0004.258 (0) No email will/can be sent - the user has not configured an email address.
+0004.259 (0) Резервное копирование успешно завершено
