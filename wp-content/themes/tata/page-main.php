@@ -73,10 +73,26 @@ get_header(); // подключаем header.php ?>
                         <div class="wr_tabs">
                             <div class="tabs_content active">
                                 <div class="wrap_product wrap_product_grid">
+
+
+
+
 								<?php
+                                
 $params = array(
-        'posts_per_page' => 8,
-        'post_type' => 'product'
+    'post_type' => 'product',
+    'post_status' => 'publish',
+    'posts_per_page' => 8,
+    'meta_key' => 'total_sales',
+    'orderby' => 'meta_value_num',
+    'meta_query'     => array(
+        array( // Simple products type
+            'key'           => 'total_sales',
+            'value'         => 0,
+            'compare'       => '>',
+            'type'          => 'numeric'
+        ),
+    ),
 );
 $wc_query = new WP_Query($params); // (2)
 ?>
@@ -146,6 +162,9 @@ echo $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' ); ?></div>
  
 </div><!-- end bubble -->
 <?php endif;?></div>
+                                    <div class="hit_pin">
+                                        ХИТ
+                                    </div>
                                         </div>
                                         <a href="<?php the_permalink();?>" class="product_img">
                                             <img src="<?php the_post_thumbnail_url(); ?>" alt="" />
@@ -375,6 +394,7 @@ echo $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' ); ?></div>
  
 </div><!-- end bubble -->
 <?php endif;?></div>
+                                    <div class="new_pin">NEW</div>
                                         </div>
                                         <a href="<?php the_permalink();?>" class="product_img">
                                             <img src="<?php the_post_thumbnail_url(); ?>" alt="" />
