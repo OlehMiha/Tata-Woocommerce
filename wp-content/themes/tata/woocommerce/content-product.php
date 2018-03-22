@@ -27,151 +27,47 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-                            <div id="grd" class="product">
 
-                                <div class="pin_product">
-                                                                           <div class="discount_rate"><?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
- 
-global $post, $product;
- 
-?>
-<?php if ($product->is_on_sale() && $product->product_type == 'variable') : ?>
-<?php
- 
-$available_variations = $product->get_available_variations();
- 
-$maximumper = 0;
- 
-for ($i = 0; $i < count($available_variations); ++$i) {
- 
-$variation_id=$available_variations[$i]['variation_id'];
- 
-$variable_product1= new WC_Product_Variation( $variation_id );
- 
-$regular_price = $variable_product1 ->regular_price;
- 
-$sales_price = $variable_product1 ->sale_price;
- 
-$percentage= round((( ( $regular_price - $sales_price ) / $regular_price ) * 100),1) ;
- 
-if ($percentage > $maximumper) {
- 
-$maximumper = $percentage;
- 
-}
- 
-}
- 
-echo $price . sprintf( __('%s', 'woocommerce' ), $maximumper . '%' ); ?>
-<?php elseif($product->is_on_sale() && $product->product_type == 'simple') : ?>
-<?php
- 
-$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
- 
-echo $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' ); ?>
-<?php endif;?></div>
-                                    <div class="new_pin">NEW</div>
-                                </div>
-                                        <a href="<?php the_permalink();?>" class="product_img">
-                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="" />
-                                        </a>
-<a href="<?php the_permalink();?>" class="product_title"><?php the_title(); // (4.2) ?></a>
-                                        <div class="stars">
-                                            <span><?php rating(); ?></span>
-                                        </div>
-								<div class="info_product displaynone">
-<?php
-/**
- * Product attributes
- */
+<div class="product">
+	<?php do_action('woocommerce_before_shop_loop_item'); ?>
+	<?php do_action('woocommerce_before_shop_loop_item_title'); ?>
+	<?php do_action('woocommerce_shop_loop_item_title'); ?>
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+	<?php $currency_symbol = html_entity_decode( get_woocommerce_currency_symbol() ); ?>
+		<div class="stars norate">
+            <span><?php rating(); ?></span>
+        </div>
+    
+    <?php if($product->sale_price) { ?>
 
-$has_row    = false;
-$alt        = 1;
-$attributes = $product->get_attributes();
-
-ob_start();
-
-?>                                    <table class="characteristics">
-
-
-	<?php if ( $product->enable_dimensions_display() ) : ?>
-
-		<?php if ( $product->has_weight() ) : $has_row = true; ?>
-			<tr class="<?php if ( ( $alt = $alt * -1 ) === 1 ) echo 'alt'; ?>">
-				<th><?php _e( 'Weight', 'woocommerce' ) ?></th>
-				<td class="product_weight"><?php echo wc_format_localized_decimal( $product->get_weight() ) . ' ' . esc_attr( get_option( 'woocommerce_weight_unit' ) ); ?></td>
-			</tr>
-		<?php endif; ?>
-
-		<?php if ( $product->has_dimensions() ) : $has_row = true; ?>
-			<tr class="<?php if ( ( $alt = $alt * -1 ) === 1 ) echo 'alt'; ?>">
-				<th><?php _e( 'Dimensions', 'woocommerce' ) ?></th>
-				<td class="product_dimensions"><?php echo $product->get_dimensions(); ?></td>
-			</tr>
-		<?php endif; ?>
-
-	<?php endif; ?>
-
-	<?php foreach ( $attributes as $attribute ) :
-		if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) ) {
-			continue;
-		} else {
-			$has_row = true;
-		}
+        <div class="old_price">
+        <?php
+			echo $product->regular_price;
+			echo " ".$currency_symbol;
 		?>
-                                        <tr>
-                                            <td><span><?php echo wc_attribute_label( $attribute['name'] ); ?></span></td>
-			<td><?php
-				if ( $attribute['is_taxonomy'] ) {
+		</div>
+        <div class="actual_price">
+        <?php
+			echo $product->sale_price;
+			echo " ".$currency_symbol;
+		?>
+		</div>
 
-					$values = wc_get_product_terms( $product->id, $attribute['name'], array( 'fields' => 'names' ) );
-					echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
+	<?php } else { ?>
 
-				} else {
+		<div class="actual_price actual_price_one">
+        <?php
+			echo $product->regular_price;
+			echo " ".$currency_symbol;
+		?> 
+		</div>
 
-					// Convert pipes to commas and display values
-					$values = array_map( 'trim', explode( WC_DELIMITER, $attribute['value'] ) );
-					echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
+	<?php } ?>
 
-				}
-			?></td>
-	<?php endforeach; ?>
-</tr>
-</table>
-                                </div>
-                                        <div class="old_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->regular_price;
-?> руб. </div>
-                                        <div class="actual_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->sale_price;
-?> руб. </div>
-<?php global $product;
+	
+	<?php //do_action('woocommerce_after_shop_loop_item_title'); ?>
 
-echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-	sprintf( '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="orng_btn">В корзину</a>',
-		esc_url( $product->add_to_cart_url() ),
-		esc_attr( isset( $quantity ) ? $quantity : 1 ),
-		esc_attr( $product->id ),
-		esc_attr( $product->get_sku() ),
-		esc_attr( isset( $class ) ? $class : 'button' ),
-		esc_html( $product->add_to_cart_text() )
-	),
-$product );?>    
+	<?php do_action('woocommerce_after_shop_loop_item'); ?> 
 
-	<?php
-	/**
-	 * woocommerce_after_shop_loop_item hook.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 * @hooked woocommerce_template_loop_add_to_cart - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
-	?>
- </div>
- 
+
+</div>

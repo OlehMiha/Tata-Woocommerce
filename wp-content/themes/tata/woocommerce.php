@@ -6,7 +6,8 @@
  */
 get_header(); // подключаем header.php ?>
     <!-- Основной контент -->
-<div class="content">
-            <?php woocommerce_content(); ?> 
-        </div>	
+	<div class="content">
+        <?php woocommerce_content(); ?> 
+    </div>	
+
 <?php get_footer(); // подключаем footer.php ?>

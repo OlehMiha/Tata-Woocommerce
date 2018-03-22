@@ -23,8 +23,85 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $product;
 
 ?>
-<?php if ( $product->is_on_sale() ) : ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . __( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
+  <div class="pin_product">
+<?php if ( $product->is_on_sale() ) : ?></a>
+
+	<!-- <?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . __( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?> -->
+
+	<div class="discount_rate">
+    
+	
+	<?php 
+		/* Вариативный */
+		if ($product->is_on_sale() && $product->product_type == 'variable') : 
+	?>
+
+		<div class="bubble">
+			 <div class="inside">
+				 <div class="inside-text">
+ 
+				<?php
+					 
+					$available_variations = $product->get_available_variations();
+					$maximumper = 0;
+			 
+					for ($i = 0; $i < count($available_variations); ++$i) {
+						$variation_id=$available_variations[$i]['variation_id'];
+						$variable_product1= new WC_Product_Variation( $variation_id );
+			 			$regular_price = $variable_product1 ->regular_price;
+			 			$sales_price = $variable_product1 ->sale_price;
+						$percentage= round((( ( $regular_price - $sales_price ) / $regular_price ) * 100),1) ;
+			 
+							if ($percentage > $maximumper) {
+								$maximumper = $percentage;
+							}
+					}
+					echo $price . sprintf( __('%s', 'woocommerce' ), $maximumper . '%' ); 
+				?>
+
+				</div>
+			</div>
+		</div><!-- end callout -->
+
+
+		<?php 
+			/* Простой */
+			elseif($product->is_on_sale() && $product->product_type == 'simple') : 
+		?>
+			<div class="bubble">
+				<div class="inside">
+ 					<div class="inside-text">
+	 	<?php
+			$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
+			echo $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' ); 
+		?>
+					</div>
+				</div>
+	 		</div><!-- end bubble -->
+			<?php endif;?>
+	</div>
 
 <?php endif; ?>
+
+	<?php $metka = get_field('metka', $post->ID); ?>
+	
+    <?php if($metka) {
+    	foreach ($metka as $value) { ?>
+
+            <?php if ($value == 'new') { ?>
+            <div class="new_pin">
+		        NEW
+		    </div>
+            <?php } ?>
+
+        	<?php if($value == 'hit') { ?>
+            <div class="hit_pin">
+		        ХИТ
+		    </div>
+            <?php } ?>
+
+		<?php } ?>
+    <?php } ?>
+
+</div>

@@ -71,368 +71,109 @@ get_header(); // подключаем header.php ?>
                             <li>Новые поступления</li>
                         </ul>
                         <div class="wr_tabs">
+
+                            <!-- Рекомендованные -->
                             <div class="tabs_content active">
                                 <div class="wrap_product wrap_product_grid">
 
-
-
-
-								<?php
+								<?php                        
+                                    $params = array(
+                                        'post_type' => 'product',
+                                        'post_status' => 'publish',
+                                        'posts_per_page' => 8,
+                                        'meta_key' => 'total_sales',
+                                        'orderby' => 'meta_value_num',
+                                        'meta_query'     => array(
+                                            array( // Simple products type
+                                                'key'           => 'total_sales',
+                                                'value'         => 0,
+                                                'compare'       => '>',
+                                                'type'          => 'numeric'
+                                            ),
+                                        ),
+                                    );
+                                    $wc_query = new WP_Query($params);  
+                                ?>
+                                <?php if ($wc_query->have_posts()) : ?>
+                                <?php while ($wc_query->have_posts()) :  $wc_query->the_post(); ?>
                                 
-$params = array(
-    'post_type' => 'product',
-    'post_status' => 'publish',
-    'posts_per_page' => 8,
-    'meta_key' => 'total_sales',
-    'orderby' => 'meta_value_num',
-    'meta_query'     => array(
-        array( // Simple products type
-            'key'           => 'total_sales',
-            'value'         => 0,
-            'compare'       => '>',
-            'type'          => 'numeric'
-        ),
-    ),
-);
-$wc_query = new WP_Query($params); // (2)
-?>
-<?php if ($wc_query->have_posts()) : // (3) ?>
-<?php while ($wc_query->have_posts()) : // (4)
-                $wc_query->the_post(); // (4.1) ?>
-                                    <div class="product">
-                                        <div class="pin_product">
-                                            <div class="discount_rate"><?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
- 
-global $post, $product;
- 
-?>
- 
-<?php if ($product->is_on_sale() && $product->product_type == 'variable') : ?>
-<div class="bubble">
- 
-<div class="inside">
- 
-<div class="inside-text">
- 
-<?php
- 
-$available_variations = $product->get_available_variations();
- 
-$maximumper = 0;
- 
-for ($i = 0; $i < count($available_variations); ++$i) {
- 
-$variation_id=$available_variations[$i]['variation_id'];
- 
-$variable_product1= new WC_Product_Variation( $variation_id );
- 
-$regular_price = $variable_product1 ->regular_price;
- 
-$sales_price = $variable_product1 ->sale_price;
- 
-$percentage= round((( ( $regular_price - $sales_price ) / $regular_price ) * 100),1) ;
- 
-if ($percentage > $maximumper) {
- 
-$maximumper = $percentage;
- 
-}
- 
-}
- 
-echo $price . sprintf( __('%s', 'woocommerce' ), $maximumper . '%' ); ?></div>
- 
-</div>
- 
-</div><!-- end callout -->
-<?php elseif($product->is_on_sale() && $product->product_type == 'simple') : ?>
-<div class="bubble">
- 
-<div class="inside">
- 
-<div class="inside-text">
- 
-<?php
- 
-$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
- 
-echo $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' ); ?></div>
- 
-</div>
- 
-</div><!-- end bubble -->
-<?php endif;?></div>
-                                    <div class="hit_pin">
-                                        ХИТ
-                                    </div>
-                                        </div>
-                                        <a href="<?php the_permalink();?>" class="product_img">
-                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="" />
-                                        </a>
-                                        <a href="<?php the_permalink();?>" class="product_title"><?php the_title(); // (4.2) ?></a>
-                                        <div class="stars norate">
-                                            <span><?php rating(); ?></span>
-                                        </div>
-                                        <div class="old_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->regular_price;
-?> руб. </div>
-                                        <div class="actual_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->sale_price;
-?> руб. </div>
-                                  <?php global $product;
-
-echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-	sprintf( '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="orng_btn">В корзину</a>',
-		esc_url( $product->add_to_cart_url() ),
-		esc_attr( isset( $quantity ) ? $quantity : 1 ),
-		esc_attr( $product->id ),
-		esc_attr( $product->get_sku() ),
-		esc_attr( isset( $class ) ? $class : 'button' ),
-		esc_html( $product->add_to_cart_text() )
-	),
-$product );?>    
-                                    </div>
-<?php endwhile; ?>
-<?php wp_reset_postdata(); // (5) ?>
-<?php else:  ?>
-<p>
-     <?php _e( 'No Products' ); // (6) ?>
-</p>
-<?php endif; ?>									
-                                    
+                                    <?php wc_get_template_part( 'content','product' ) ?>						
+                                
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); // (5) ?>
+                                <?php else:  ?>
+                                <p>
+                                     <?php _e( 'No Products' ); // (6) ?>
+                                </p>
+                                <?php endif; ?>
                                 </div>
                             </div>
+
+                            <!-- Акционные -->
                             <div class="tabs_content">
                                 <div class="wrap_product">
-								<?php
-$params = array(
-        'posts_per_page' => 8,
-        'post_type' => 'product',
-		 'order'  => 'ASC',
-         'orderby' => 'display_name'
-);
-$wc_query = new WP_Query($params); // (2)
-?>
-<?php if ($wc_query->have_posts()) : // (3) ?>
-<?php while ($wc_query->have_posts()) : // (4)
-                $wc_query->the_post(); // (4.1) ?>								
-                                    <div class="product">
-                                        <div class="pin_product">
-                                            <div class="discount_rate"><?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
- 
-global $post, $product;
- 
-?>
- 
-<?php if ($product->is_on_sale() && $product->product_type == 'variable') : ?>
-<div class="bubble">
- 
-<div class="inside">
- 
-<div class="inside-text">
- 
-<?php
- 
-$available_variations = $product->get_available_variations();
- 
-$maximumper = 0;
- 
-for ($i = 0; $i < count($available_variations); ++$i) {
- 
-$variation_id=$available_variations[$i]['variation_id'];
- 
-$variable_product1= new WC_Product_Variation( $variation_id );
- 
-$regular_price = $variable_product1 ->regular_price;
- 
-$sales_price = $variable_product1 ->sale_price;
- 
-$percentage= round((( ( $regular_price - $sales_price ) / $regular_price ) * 100),1) ;
- 
-if ($percentage > $maximumper) {
- 
-$maximumper = $percentage;
- 
-}
- 
-}
- 
-echo $price . sprintf( __('%s', 'woocommerce' ), $maximumper . '%' ); ?></div>
- 
-</div>
- 
-</div><!-- end callout -->
-<?php elseif($product->is_on_sale() && $product->product_type == 'simple') : ?>
-<div class="bubble">
- 
-<div class="inside">
- 
-<div class="inside-text">
- 
-<?php
- 
-$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
- 
-echo $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' ); ?></div>
- 
-</div>
- 
-</div><!-- end bubble -->
-<?php endif;?></div>
-                                        </div>
-                                        <a href="<?php the_permalink();?>" class="product_img">
-                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="" />
-                                        </a>
-                                        <a href="<?php the_permalink();?>" class="product_title"><?php the_title(); // (4.2) ?></a>
-                                        <div class="stars norate">
-                                            <span><?php rating(); ?></span>
-                                        </div>
-                                        <div class="old_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->regular_price;
-?> руб. </div>
-                                        <div class="actual_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->sale_price;
-?> руб. </div>
-                                  <?php global $product;
+    								<?php
+                                        $params = array(
+                                                'posts_per_page' => 8,
+                                                'post_type'      => 'product',
+                                                'meta_query'     => array(
+                                                    'relation' => 'OR',
+                                                        array( // Simple products type
+                                                            'key'           => '_sale_price',
+                                                            'value'         => 0,
+                                                            'compare'       => '>',
+                                                            'type'          => 'numeric'
+                                                        ),
+                                                        array( // Variable products type
+                                                            'key'           => '_min_variation_sale_price',
+                                                            'value'         => 0,
+                                                            'compare'       => '>',
+                                                            'type'          => 'numeric'
+                                                        )
+                                                    )
+                                                );
+                                        $wc_query = new WP_Query($params);
+                                    ?>
+                                    <?php if ($wc_query->have_posts()) : ?>
+                                    <?php while ($wc_query->have_posts()) : $wc_query->the_post();?>
 
-echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-	sprintf( '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="orng_btn">В корзину</a>',
-		esc_url( $product->add_to_cart_url() ),
-		esc_attr( isset( $quantity ) ? $quantity : 1 ),
-		esc_attr( $product->id ),
-		esc_attr( $product->get_sku() ),
-		esc_attr( isset( $class ) ? $class : 'button' ),
-		esc_html( $product->add_to_cart_text() )
-	),
-$product );?>  
-                                    </div>
-<?php endwhile; ?>
-<?php wp_reset_postdata(); // (5) ?>
-<?php else:  ?>
-<p>
-     <?php _e( 'No Products' ); // (6) ?>
-</p>
-<?php endif; ?>										
+                                    	<?php wc_get_template_part( 'content','product' ) ?>                      
+                                
+                                    <?php endwhile; ?>
+                                    <?php wp_reset_postdata(); // (5) ?>
+                                    <?php else:  ?>
+                                    <p>
+                                         <?php _e( 'No Products' ); // (6) ?>
+                                    </p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
+
+                            <!-- Новые -->
                             <div class="tabs_content">
                                 <div class="wrap_product">
-								<?php
-$params = array(
-        'posts_per_page' => 8,
-        'post_type' => 'product'
-);
-$wc_query = new WP_Query($params); // (2)
-?>
-<?php if ($wc_query->have_posts()) : // (3) ?>
-<?php while ($wc_query->have_posts()) : // (4)
-                $wc_query->the_post(); // (4.1) ?>									
-                                    <div class="product">
-                                        <div class="pin_product">
-                                            <div class="discount_rate"><?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
- 
-global $post, $product;
- 
-?>
- 
-<?php if ($product->is_on_sale() && $product->product_type == 'variable') : ?>
-<div class="bubble">
- 
-<div class="inside">
- 
-<div class="inside-text">
- 
-<?php
- 
-$available_variations = $product->get_available_variations();
- 
-$maximumper = 0;
- 
-for ($i = 0; $i < count($available_variations); ++$i) {
- 
-$variation_id=$available_variations[$i]['variation_id'];
- 
-$variable_product1= new WC_Product_Variation( $variation_id );
- 
-$regular_price = $variable_product1 ->regular_price;
- 
-$sales_price = $variable_product1 ->sale_price;
- 
-$percentage= round((( ( $regular_price - $sales_price ) / $regular_price ) * 100),1) ;
- 
-if ($percentage > $maximumper) {
- 
-$maximumper = $percentage;
- 
-}
- 
-}
- 
-echo $price . sprintf( __('%s', 'woocommerce' ), $maximumper . '%' ); ?></div>
- 
-</div>
- 
-</div><!-- end callout -->
-<?php elseif($product->is_on_sale() && $product->product_type == 'simple') : ?>
-<div class="bubble">
- 
-<div class="inside">
- 
-<div class="inside-text">
- 
-<?php
- 
-$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
- 
-echo $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' ); ?></div>
- 
-</div>
- 
-</div><!-- end bubble -->
-<?php endif;?></div>
-                                    <div class="new_pin">NEW</div>
-                                        </div>
-                                        <a href="<?php the_permalink();?>" class="product_img">
-                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="" />
-                                        </a>
-                                        <a href="<?php the_permalink();?>" class="product_title"><?php the_title(); // (4.2) ?></a>
-                                        <div class="stars norate">
-                                            <span><?php rating(); ?></span>
-                                        </div>
-                                        <div class="old_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->regular_price;
-?> руб. </div>
-                                        <div class="actual_price"><?php
-#the product must be instantiated above like $product = new WC_Product();
-echo $product->sale_price;
-?> руб. </div>
-                                  <?php global $product;
+                                    <?php
+                                        $params = array(
+                                                'posts_per_page' => 8,
+                                                'post_type' => 'product',
+                                        );
+                                        $wc_query = new WP_Query($params);
+                                    ?>
+                                    <?php if ($wc_query->have_posts()) : ?>
+                                    <?php while ($wc_query->have_posts()) : $wc_query->the_post();?>
 
-echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-	sprintf( '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="orng_btn">В корзину</a>',
-		esc_url( $product->add_to_cart_url() ),
-		esc_attr( isset( $quantity ) ? $quantity : 1 ),
-		esc_attr( $product->id ),
-		esc_attr( $product->get_sku() ),
-		esc_attr( isset( $class ) ? $class : 'button' ),
-		esc_html( $product->add_to_cart_text() )
-	),
-$product );?>  
-                                    </div>
-<?php endwhile; ?>
-<?php wp_reset_postdata(); // (5) ?>
-<?php else:  ?>
-<p>
-     <?php _e( 'No Products' ); // (6) ?>
-</p>
-<?php endif; ?>											
+                                        <?php wc_get_template_part( 'content','product' ) ?>                      
+                                
+                                    <?php endwhile; ?>
+                                    <?php wp_reset_postdata(); // (5) ?>
+                                    <?php else:  ?>
+                                    <p>
+                                         <?php _e( 'No Products' ); // (6) ?>
+                                    </p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

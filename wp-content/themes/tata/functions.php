@@ -5,6 +5,33 @@
  * @subpackage your-clean-template-3
  */
 
+/* Переопределенные Woo function */
+
+function woocommerce_template_loop_product_link_open() {
+    global $product;
+
+    $link = apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product );
+}
+
+function woocommerce_template_loop_product_thumbnail() {
+  echo '<a href="'. get_the_permalink() . '" class="product_img">';
+  echo woocommerce_get_product_thumbnail();
+  echo "</a>";
+}
+
+function woocommerce_template_loop_product_title() {
+    echo '<a class="product_title" href="' . get_the_permalink(). '">' . get_the_title() . '</a>';
+}
+
+function woocommerce_template_loop_product_link_close() {
+    
+}
+
+
+
+
+
+
 add_theme_support('title-tag'); // теперь тайтл управляется самим вп
 
 register_nav_menus(array( // Регистрируем 2 меню
