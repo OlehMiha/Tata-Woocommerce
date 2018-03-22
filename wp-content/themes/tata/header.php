@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html <?php language_attributes(); ?>>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="format-detection" content="telephone=no">
-    <link href="/wp-content/themes/tata/css/tooltip-classic.css" type="text/css" rel="stylesheet"/>
-    <link href="/wp-content/themes/tata/css/nouislider.css" type="text/css" rel="stylesheet"/>
-    <link href="/wp-content/themes/tata/css/formstyler.css" type="text/css" rel="stylesheet"/>
-    <link href="/wp-content/themes/tata/css/fancybox.css" type="text/css" rel="stylesheet"/>
-    <link href="/wp-content/themes/tata/css/swiper.css" type="text/css" rel="stylesheet"/>
-    <link href="/wp-content/themes/tata/css/style.css" type="text/css" rel="stylesheet"/>
-    <link href="/wp-content/themes/tata/style.css" type="text/css" rel="stylesheet"/>
-	<link href="/wp-content/themes/tata/css/mCustomScrollbar.css" type="text/css" rel="stylesheet"/>
-    <link href="/wp-content/themes/tata/css/responsive.css" type="text/css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/ratings/rating.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <title><?php bloginfo('name'); ?><?php wp_title(); ?></title>
+    <meta name="description" content="<?php bloginfo('description'); ?>" />
+    <meta name="Keywords" content=""> 
+	
+	<!-- !!!Noindex!!! -->
+    <meta name="robots" content="noindex" />
+    
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<?php wp_head(); // необходимо для работы плагинов и функционала ?>
 	</head>
 <body>

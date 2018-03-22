@@ -4,9 +4,94 @@
  * @package WordPress
  * @subpackage your-clean-template-3
  */
+/* подключение js, css */
+//Стили
+function register_styles() {
+    /* CSS */
+    wp_register_style('tooltip-classic.css', get_template_directory_uri() . '/css/tooltip-classic.css');
+    wp_enqueue_style('tooltip-classic.css');
+    
+    wp_register_style('nouislider.css', get_template_directory_uri() . '/css/nouislider.css');
+    wp_enqueue_style('nouislider.css');
+
+    wp_register_style('formstyler.css', get_template_directory_uri() . '/css/formstyler.css');
+    wp_enqueue_style('formstyler.css');
+
+    wp_register_style('fancybox.css', get_template_directory_uri() . '/css/fancybox.css');
+    wp_enqueue_style('fancybox.css');
+
+    wp_register_style('swiper', get_template_directory_uri() . '/css/swiper.css');
+    wp_enqueue_style('swiper');
+
+    wp_register_style('mCustomScrollbar', get_template_directory_uri() . '/css/mCustomScrollbar.css');
+    wp_enqueue_style('mCustomScrollbar');
+
+    wp_register_style('style', get_template_directory_uri() . '/css/style.css');
+    wp_enqueue_style('style');
+
+    wp_register_style('style_index', get_template_directory_uri() . '/style.css');
+    wp_enqueue_style('style_index');
+    
+    wp_register_style('responsive.css', get_template_directory_uri() . '/css/responsive.css');
+    wp_enqueue_style('responsive.css');
+
+    wp_register_style('rating.css', get_template_directory_uri() . '/ratings/rating.css');
+    wp_enqueue_style('rating.css');
+
+    wp_register_style('googlefont', 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext');
+    wp_enqueue_style('googlefont');
+    
+    wp_register_style('font-awesome.min', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+    wp_enqueue_style('font-awesome.min');
+
+    wp_register_style('font-awesome.min', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+    wp_enqueue_style('font-awesome.min');
+
+
+    
+}
+
+function load_my_style_script_header() {
+    /* JS */
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js');
+    wp_enqueue_script('jquery');
+}
+
+function load_my_style_script_footer() {
+    /* JS */
+    
+    wp_register_script('script.js', get_template_directory_uri() . '/js/script.js');
+    wp_enqueue_script('script.js');
+    
+    wp_register_script('swiper.min.js', get_template_directory_uri() . '/js/swiper.min.js');
+    wp_enqueue_script('swiper.min.js');
+
+    wp_register_script('fancybox.min.js', get_template_directory_uri() . '/js/fancybox.min.js');
+    wp_enqueue_script('fancybox.min.js');
+
+    wp_register_script('formstyler.js', get_template_directory_uri() . '/js/formstyler.js');
+    wp_enqueue_script('formstyler.js');
+
+    wp_register_script('nouislider.min.js', get_template_directory_uri() . '/js/nouislider.min.js');
+    wp_enqueue_script('nouislider.min.js');
+
+    wp_register_script('mCustomScrollbar.concat.min.js', get_template_directory_uri() . '/js/mCustomScrollbar.concat.min.js');
+    wp_enqueue_script('mCustomScrollbar.concat.min.js');
+
+    wp_register_script('rating.js', get_template_directory_uri() . '/ratings/rating.js');
+    wp_enqueue_script('rating.js');
+}
+
+//Регистрация Css и Js в footer для GoogleSpeed
+add_action( 'wp_enqueue_scripts', 'register_styles' );
+add_action( 'get_header', 'load_my_style_script_header' );
+add_action( 'get_footer', 'load_my_style_script_footer');
+
+
+
 
 /* Переопределенные Woo function */
-
 function woocommerce_template_loop_product_link_open() {
     global $product;
 

@@ -230,14 +230,6 @@
     </div>
 </div>
 
-<script src="/wp-content/themes/tata/js/script.js"></script>
-<script src="/wp-content/themes/tata/js/swiper.min.js"></script>
-<script src="/wp-content/themes/tata/js/fancybox.min.js"></script>
-<script src="/wp-content/themes/tata/js/formstyler.js"></script>
-<script src="/wp-content/themes/tata/js/main.js"></script>
-<script src="/wp-content/themes/tata/js/nouislider.min.js"></script>
-<script src="/wp-content/themes/tata/js/mCustomScrollbar.concat.min.js"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/ratings/rating.js"></script>
 <?php wp_footer(); // необходимо для работы плагинов и функционала  ?>
 </body>
 </html>
