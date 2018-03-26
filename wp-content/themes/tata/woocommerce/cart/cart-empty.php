@@ -21,16 +21,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 wc_print_notices();
-
-?>
-
-<div class="wrap_404 cart_empty">
-                    <div class="cart_empty_img">
-                        <img src="/wp-content/themes/tata/img/svg/cart_empty.svg" alt="" />
-                    </div>
-                    <div class="txt_404">
-                        <h5>Ваша корзина пуста</h5>
-                        <p>Ваша корзина к сожалению пуста. Для старта покупок, зайдите в <a href="/shop/"> Каталог</a> нашего интернет-магазина. Ассортимент товаров для кровли и строительства весьма широк.</p>
-                        <a href="/shop/" class="blue_btn">Перейти в каталог</a>
-                    </div>
-                </div>
+if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
+    <div class="return-to-shop wrap_404 cart_empty">
+    <div class="cart_empty_img">
+        <img src="/wp-content/themes/tata/img/svg/cart_empty.svg" alt="" />
+    </div>
+    <div class="txt_404">
+        <h5>Ваша корзина пуста</h5>
+        <p>Ваша корзина к сожалению пуста. Для старта покупок, зайдите в <a href="/shop/"> Каталог</a> нашего интернет-магазина. Ассортимент товаров для кровли и строительства весьма широк.</p>
+        <a href="/shop/" class="blue_btn">Перейти в каталог</a>
+    </div>
+</div>
+<?php endif; ?>

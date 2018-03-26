@@ -24,7 +24,9 @@ wc_print_notices();
 
 do_action( 'woocommerce_before_cart' ); ?>
 
-<form action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+	<?php do_action( 'woocommerce_before_cart_table' ); ?>
+	<div class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                 <div class="wrap_basket">
                     <div class="title_wrap_basket">
                         <p>Товары</p>
@@ -42,7 +44,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 				?>				
-                    <div class="product_mod_bask">
+                    <div class="woocommerce-cart-form__cart-item cart_item product_mod_bask">
                         <div class="product_mod_bask_first">
 						<?php
 							$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
@@ -60,7 +62,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 							}
 
 							// Meta data
-							echo WC()->cart->get_item_data( $cart_item );
+							echo wc_get_formatted_cart_item_data( $cart_item );
 
 							// Backorder notification
 							if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
@@ -77,12 +79,14 @@ do_action( 'woocommerce_before_cart' ); ?>
 									'input_name'  => "cart[{$cart_item_key}][qty]",
 									'input_value' => $cart_item['quantity'],
 									'max_value'   => $_product->backorders_allowed() ? '' : $_product->get_stock_quantity(),
-									'min_value'   => '0'
+									'min_value'   => '1'
 								), $_product, false );
 							}
 
 							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
-						?></div>
+
+						?>
+						</div>
                         <div class="product_mod_price">
                           						<?php
 							echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
@@ -92,16 +96,16 @@ do_action( 'woocommerce_before_cart' ); ?>
                             						<?php
 							echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
 						?>
-                            <div class="del_bsk">
+                            <div class="product-remove del_bsk">
                                 						<?php
 							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-								'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s"><i class="fa fa-times" aria-hidden="true"></i></a>',
-								esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
-								__( 'Remove this item', 'woocommerce' ),
-								esc_attr( $product_id ),
-								esc_attr( $_product->get_sku() )
-							), $cart_item_key );
-						?>
+								'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s"><i class="fa fa-times" aria-hidden="true"></i></a>',
+									esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+									__( 'Remove this item', 'woocommerce' ),
+									esc_attr( $product_id ),
+									esc_attr( $_product->get_sku() )
+								), $cart_item_key );
+								?>
                             </div>
                         </div>
                 </div>
@@ -120,47 +124,48 @@ do_action( 'woocommerce_before_cart' ); ?>
                         </div>
                     </div>
                     <div class="checkout_total">
-                        <div class="item_checkout_total">
-                            <h5>Итого</h5>
-                            <table class="table_checkout_total">
-                                <tr>
-                                    <td>Товаров в корзине</td>
-                                    <td><p><?php echo sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></p></td>
-                                </tr>
-                                <tr>
-                                    <td>Экономия</td>
-                                    <td><span></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Стоимость доставки</td>
-                                    <td><p><?php wc_cart_totals_shipping_html(); ?></p></td>
-                                </tr>
-                                <tr>
-                                    <td><p>Сумма заказа</p></td>
-                                    <td><b><?php wc_cart_totals_order_total_html(); ?></b></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <a href="/checkout/" class="orng_btn">Оформить заказ</a>
+						<?php
+							/**
+							 * Cart collaterals hook.
+							 *
+							 * @hooked woocommerce_cross_sell_display
+							 * @hooked woocommerce_cart_totals - 10
+							 */
+							do_action( 'woocommerce_cart_collaterals' );
+						?>
                     </div>
                 </div>
 		
 
+		<div>
+			<?php if ( wc_coupons_enabled() ) { ?>
+				<div class="coupon">
+					<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>" />
+					<?php do_action( 'woocommerce_cart_coupon' ); ?>
+				</div>
+			<?php } ?>
+
+			<button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+
+			<?php do_action( 'woocommerce_cart_actions' ); ?>
+
+			<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+		</div>
+
 		<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 
-
+</div>
 <?php do_action( 'woocommerce_after_cart_table' ); ?>
 
 </form>
 
 <div class="cart-collaterals">
 
-
-
 </div>
-					<input type="submit" class="button hidden" name="update_cart" value="<?php esc_attr_e( '&nbsp;', 'woocommerce' ); ?>" />
-
+					
+					<button style="display: none;" type="submit" class="button hidden" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 					<?php wp_nonce_field( 'woocommerce-cart' ); ?>
 <?php do_action( 'woocommerce_after_cart' ); ?>
+

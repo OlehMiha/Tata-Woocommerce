@@ -35,20 +35,28 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 ?>
 
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
-<!-- 
+ 
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
-		<div class="col2-set" id="customer_details">
-			<div class="col-1">
-				<?php do_action( 'woocommerce_checkout_billing' ); ?>
-			</div>
+		
+    	<?php do_action( 'woocommerce_checkout_billing' ); ?>
+	
 
-			<div class="col-2">
-				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
-			</div>
+
+
+
+
+
+
+
+
+
+		<div class="col-2">
+			<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 		</div>
+		
 
 		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
@@ -62,7 +70,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 	</div>
 
-	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?> -->
+	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?> 
 
 
 
@@ -73,187 +81,185 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 
 <div class="wrap_checkout">
-                    <div class="item_checkout">
-                        <div class="title_checkout">
-                            <p>1  Контактная информация</p>
-                            <a href="checkout.html#" class="edit_checkout">Редактировать</a>
-                        </div>
-                        <div class="checkout">
-                            <div class="form_contacts">
-                                <div class="form">
-                                    <p>Ваше имя</p>
-                                    <input type="text" class="tp_inp" placeholder="" />
-                                    <p>Номер телефона <b>*</b></p>
-                                    <input type="tel" class="tp_inp" placeholder="" />
-                                    <p>Ваше сообщение <b>*</b></p>
-                                    <textarea class="tp_txtarea"></textarea>
-                                    <p><span>Ваш запрос будет обработан в рабочее время. Обязательные поля отмечены <b>*</b></span></p>
-                                    <input type="submit" class="orng_btn" value="Продолжить" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item_checkout">
-                        <div class="title_checkout">
-                            <p>2  способ доставки</p>
-                            <a href="checkout.html#" class="edit_checkout">Редактировать</a>
-                        </div>
-                        <div class="checkout">
-                            <div class="delivery_method">
-                                <div class="city_del">Город доставки:
-                                    <div class="tp_select">
-                                        <select>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                            <option>по Минску</option>
-                                            <option>по Гомелю</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="ckeck_delivery_method">
-                                    <label><input type="radio" name="radio" />
-                                        <div class="del_label">
-                                            <h5>Доставка курьером </h5>
-                                            <p>Ближайшая дата: <span>10.05</span></p>
-                                            <p>Стоимость: <span>10,80 руб.</span></p>
-                                        </div>
-                                    </label>
-                                    <label><input type="radio" name="radio" />
-                                        <div class="del_label">
-                                            <h5>Самовывоз </h5>
-                                            <p>Стоимость: <span>0 руб.</span></p>
-                                        </div>
-                                    </label>
-                                </div>
-                                <h5>Адрес доставки</h5>
-                                <div class="address_del">
-                                    <div class="inp_addr">
-                                        <p>Улица <span>*</span></p>
-                                        <input type="text" class="tp_inp" placeholder="" />
-                                    </div>
-                                    <div class="inp_addr">
-                                        <p>Дом <span>*</span></p>
-                                        <input type="text" class="tp_inp" placeholder="" />
-                                    </div>
-                                    <div class="inp_addr">
-                                        <p>Корпус</p>
-                                        <input type="text" class="tp_inp" placeholder="" />
-                                    </div>
-                                    <div class="inp_addr">
-                                        <p>Квартира</p>
-                                        <input type="text" class="tp_inp" placeholder="" />
-                                    </div>
-                                </div>
-                                <div><a href="checkout.html#" class="add_comm">Добавить комментарий к заказу</a></div>
-                                <a href="checkout.html#" class="orng_btn">Продолжить</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item_checkout">
-                        <div class="title_checkout">
-                            <p>3  способ оплаты</p>
-                            <a href="checkout.html#" class="edit_checkout">Редактировать</a>
-                        </div>
-                        <div class="checkout">
-                            <div class="ckeck_delivery_method paym_method">
-                                <label><input type="radio" name="radio" />
-                                    <div class="del_label">
-                                        <span class="imp_paym_method"><img src="img/pin/p1.png" alt="" /></span>
-                                        <h5>Наличными курьеру</h5>
-                                        <p>После получения заказ от курьера</p>
-                                    </div>
-                                </label>
-                                <label><input type="radio" name="radio" />
-                                    <div class="del_label">
-                                        <span class="imp_paym_method"><img src="img/pin/p2.png" alt="" /></span>
-                                        <h5>Банковской картой</h5>
-                                        <p>При помощи карт Visa, Mastercard или Белкарт</p>
-                                    </div>
-                                </label>
-                                <label><input type="radio" name="radio" />
-                                    <div class="del_label">
-                                        <span class="imp_paym_method"><img src="img/pin/p3.png" alt="" /></span>
-                                        <h5>Система ЕРИП</h5>
-                                        <p>При помощи касс банков, платежных терминалов и интернет-банкиг</p>
-                                    </div>
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="wrap_checkout_total">
-                    <div class="left_checkout_total">
-                        <div class="product_mod_bask">
-                            <a href="checkout.html#" class="product_mod_img"><img src="img/prod.png" alt="" /></a>
-                            <a href="checkout.html#" class="product_mod_title">Детская кровать-трансформер Daka Baby<br/>
-                                1 шт.
-                            </a>
-                            <div class="product_mod_price">
-                                102.30 руб.
-                            </div>
-                        </div>
-                        <div class="product_mod_bask">
-                            <a href="checkout.html#" class="product_mod_img"><img src="img/prod.png" alt="" /></a>
-                            <a href="checkout.html#" class="product_mod_title">Детская кровать-трансформер Daka Baby<br/>
-                                1 шт.
-                            </a>
-                            <div class="product_mod_price">
-                                102.30 руб.
-                            </div>
-                        </div>
-                        <div class="product_mod_bask">
-                            <a href="checkout.html#" class="product_mod_img"><img src="img/prod.png" alt="" /></a>
-                            <a href="checkout.html#" class="product_mod_title">Детская кровать-трансформер Daka Baby<br/>
-                                1 шт.
-                            </a>
-                            <div class="product_mod_price">
-                                102.30 руб.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="checkout_total">
-                        <div class="item_checkout_total">
-                            <h5>Итого</h5>
-                            <table class="table_checkout_total">
-                                <tr>
-                                    <td>Товаров в корзине</td>
-                                    <td><p>17</p></td>
-                                </tr>
-                                <tr>
-                                    <td>Экономия</td>
-                                    <td><span>- 31.28 руб.</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Стоимость доставки</td>
-                                    <td><p>10.80 руб.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><p>Сумма заказа</p></td>
-                                    <td><b>2 095.10 руб.</b></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <a href="checkout.html#" class="orng_btn">Оформить заказ</a>
-                    </div>
+    <div class="item_checkout">
+        <div class="title_checkout">
+            <p>1  Контактная информация</p>
+            <a href="checkout.html#" class="edit_checkout">Редактировать</a>
+        </div>
+        <div class="checkout">
+            <div class="form_contacts">
+                <div class="form">
+                    <p>Ваше имя</p>
+                    <input type="text" class="tp_inp" placeholder="" />
+                    <p>Номер телефона <b>*</b></p>
+                    <input type="tel" class="tp_inp" placeholder="" />
+                    <p>Ваше сообщение <b>*</b></p>
+                    <textarea class="tp_txtarea"></textarea>
+                    <p><span>Ваш запрос будет обработан в рабочее время. Обязательные поля отмечены <b>*</b></span></p>
+                    <input type="submit" class="orng_btn" value="Продолжить" />
                 </div>
             </div>
         </div>
     </div>
+    <div class="item_checkout">
+        <div class="title_checkout">
+            <p>2  способ доставки</p>
+            <a href="checkout.html#" class="edit_checkout">Редактировать</a>
+        </div>
+        <div class="checkout">
+            <div class="delivery_method">
+                <div class="city_del">Город доставки:
+                    <div class="tp_select">
+                        <select>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                            <option>по Минску</option>
+                            <option>по Гомелю</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ckeck_delivery_method">
+                    <label><input type="radio" name="radio" />
+                        <div class="del_label">
+                            <h5>Доставка курьером </h5>
+                            <p>Ближайшая дата: <span>10.05</span></p>
+                            <p>Стоимость: <span>10,80 руб.</span></p>
+                        </div>
+                    </label>
+                    <label><input type="radio" name="radio" />
+                        <div class="del_label">
+                            <h5>Самовывоз </h5>
+                            <p>Стоимость: <span>0 руб.</span></p>
+                        </div>
+                    </label>
+                </div>
+                <h5>Адрес доставки</h5>
+                <div class="address_del">
+                    <div class="inp_addr">
+                        <p>Улица <span>*</span></p>
+                        <input type="text" class="tp_inp" placeholder="" />
+                    </div>
+                    <div class="inp_addr">
+                        <p>Дом <span>*</span></p>
+                        <input type="text" class="tp_inp" placeholder="" />
+                    </div>
+                    <div class="inp_addr">
+                        <p>Корпус</p>
+                        <input type="text" class="tp_inp" placeholder="" />
+                    </div>
+                    <div class="inp_addr">
+                        <p>Квартира</p>
+                        <input type="text" class="tp_inp" placeholder="" />
+                    </div>
+                </div>
+                <div><a href="checkout.html#" class="add_comm">Добавить комментарий к заказу</a></div>
+                <a href="checkout.html#" class="orng_btn">Продолжить</a>
+            </div>
+        </div>
+    </div>
+    <div class="item_checkout">
+        <div class="title_checkout">
+            <p>3  способ оплаты</p>
+            <a href="checkout.html#" class="edit_checkout">Редактировать</a>
+        </div>
+        <div class="checkout">
+            <div class="ckeck_delivery_method paym_method">
+                <label><input type="radio" name="radio" />
+                    <div class="del_label">
+                        <span class="imp_paym_method"><img src="img/pin/p1.png" alt="" /></span>
+                        <h5>Наличными курьеру</h5>
+                        <p>После получения заказ от курьера</p>
+                    </div>
+                </label>
+                <label><input type="radio" name="radio" />
+                    <div class="del_label">
+                        <span class="imp_paym_method"><img src="img/pin/p2.png" alt="" /></span>
+                        <h5>Банковской картой</h5>
+                        <p>При помощи карт Visa, Mastercard или Белкарт</p>
+                    </div>
+                </label>
+                <label><input type="radio" name="radio" />
+                    <div class="del_label">
+                        <span class="imp_paym_method"><img src="img/pin/p3.png" alt="" /></span>
+                        <h5>Система ЕРИП</h5>
+                        <p>При помощи касс банков, платежных терминалов и интернет-банкиг</p>
+                    </div>
+                </label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="wrap_checkout_total">
+    <div class="left_checkout_total">
+        <div class="product_mod_bask">
+            <a href="checkout.html#" class="product_mod_img"><img src="img/prod.png" alt="" /></a>
+            <a href="checkout.html#" class="product_mod_title">Детская кровать-трансформер Daka Baby<br/>
+                1 шт.
+            </a>
+            <div class="product_mod_price">
+                102.30 руб.
+            </div>
+        </div>
+        <div class="product_mod_bask">
+            <a href="checkout.html#" class="product_mod_img"><img src="img/prod.png" alt="" /></a>
+            <a href="checkout.html#" class="product_mod_title">Детская кровать-трансформер Daka Baby<br/>
+                1 шт.
+            </a>
+            <div class="product_mod_price">
+                102.30 руб.
+            </div>
+        </div>
+        <div class="product_mod_bask">
+            <a href="checkout.html#" class="product_mod_img"><img src="img/prod.png" alt="" /></a>
+            <a href="checkout.html#" class="product_mod_title">Детская кровать-трансформер Daka Baby<br/>
+                1 шт.
+            </a>
+            <div class="product_mod_price">
+                102.30 руб.
+            </div>
+        </div>
+    </div>
+    <div class="checkout_total">
+        <div class="item_checkout_total">
+            <h5>Итого</h5>
+            <table class="table_checkout_total">
+                <tr>
+                    <td>Товаров в корзине</td>
+                    <td><p>17</p></td>
+                </tr>
+                <tr>
+                    <td>Экономия</td>
+                    <td><span>- 31.28 руб.</span></td>
+                </tr>
+                <tr>
+                    <td>Стоимость доставки</td>
+                    <td><p>10.80 руб.</p></td>
+                </tr>
+                <tr>
+                    <td><p>Сумма заказа</p></td>
+                    <td><b>2 095.10 руб.</b></td>
+                </tr>
+            </table>
+        </div>
+        <a href="checkout.html#" class="orng_btn">Оформить заказ</a>
+    </div>
+</div>
+            
 	
 
 </form>

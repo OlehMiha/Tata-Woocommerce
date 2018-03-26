@@ -231,5 +231,13 @@
 </div>
 
 <?php wp_footer(); // необходимо для работы плагинов и функционала  ?>
+
+<style>
+/* Woo */
+
+.table_checkout_total span.woocommerce-Price-amount.amount {
+    float: right;
+}
+</style>
 </body>
 </html>

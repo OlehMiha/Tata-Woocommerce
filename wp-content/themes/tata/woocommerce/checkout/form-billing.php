@@ -23,20 +23,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** @global WC_Checkout $checkout */
 
 ?>
-<div class="woocommerce-billing-fields">
-	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
+<div class="woocommerce-billing-fields item_checkout">
+	<div class="title_checkout">
+            
+	<?php $count_punckt = 0;
+		if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : $count_punckt++?>
 
-		<h3><?php _e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>
+		<p><?php echo ($count_punckt . " "); _e( 'Billing &amp; Shipping', 'woocommerce' ); ?></p>
 
-	<?php else : ?>
+	<?php else : $count_punckt++?>
 
-		<h3><?php _e( 'Billing details', 'woocommerce' ); ?></h3>
+		<p><?php echo ($count_punckt . " "); _e( 'Billing details', 'woocommerce' ); ?></p>
 
 	<?php endif; ?>
+        <a href="checkout.html#" class="edit_checkout">Редактировать</a>
+    </div>
+
+
+
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-	<div class="woocommerce-billing-fields__field-wrapper">
+	<div class="woocommerce-billing-fields__field-wrapper checkout">
+        <div class="form_contacts">
+            <div class="form">
 		<?php
 			$fields = $checkout->get_checkout_fields( 'billing' );
 
@@ -47,6 +57,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
 			}
 		?>
+			</div>
+		</div>
 	</div>
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
