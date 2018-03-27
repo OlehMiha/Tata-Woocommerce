@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="woocommerce-shipping-fields">
+<!-- <div class="woocommerce-shipping-fields">
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
 		<h3 id="ship-to-different-address">
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 
 	<?php endif; ?>
-</div>
+</div> -->
 <div class="woocommerce-additional-fields">
 	<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
 
@@ -65,12 +65,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 		<div class="woocommerce-additional-fields__field-wrapper">
+
+            <div class="form_contacts">
+                <div class="form">
 			<?php foreach ( $checkout->get_checkout_fields( 'order' ) as $key => $field ) : ?>
 				<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 			<?php endforeach; ?>
+				</div>
+			</div>
 		</div>
 
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_after_order_notes', $checkout ); ?>
 </div>
+
+<!-- НЕ ЗАБЫТЬ ЗАКРЫТЬ 2 блок -->
+<a href="checkout.html#" class="orng_btn">Продолжить</a>
+            </div>
+        </div>
+    </div>

@@ -34,39 +34,87 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+<form name="checkout" method="post" class="woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
  
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-
 		
-    	<?php do_action( 'woocommerce_checkout_billing' ); ?>
+		<div class="woocommerce-billing-fields wrap_checkout">
+		
+    		<?php do_action( 'woocommerce_checkout_billing' ); ?>
 	
+			
+		
 
 
+			<div class="item_checkout is_open">
+		        <div class="title_checkout">
+		            <p>3  способ оплаты</p>
+		            <a href="#" class="edit_checkout">Редактировать</a>
+		        </div>
+		        <div class="checkout">
+
+					
+
+		            <div class="ckeck_delivery_method paym_method">
+		                <label><input type="radio" name="radio" />
+		                    <div class="del_label">
+		                        <span class="imp_paym_method"><img src="img/pin/p1.png" alt="" /></span>
+		                        <h5>Наличными курьеру</h5>
+		                        <p>После получения заказ от курьера</p>
+		                    </div>
+		                </label>
+		                <label><input type="radio" name="radio" />
+		                    <div class="del_label">
+		                        <span class="imp_paym_method"><img src="img/pin/p2.png" alt="" /></span>
+		                        <h5>Банковской картой</h5>
+		                        <p>При помощи карт Visa, Mastercard или Белкарт</p>
+		                    </div>
+		                </label>
+		                <label><input type="radio" name="radio" />
+		                    <div class="del_label">
+		                        <span class="imp_paym_method"><img src="img/pin/p3.png" alt="" /></span>
+		                        <h5>Система ЕРИП</h5>
+		                        <p>При помощи касс банков, платежных терминалов и интернет-банкиг</p>
+		                    </div>
+		                </label>
 
 
+						<?php if ( WC()->cart->needs_payment() ) : ?>
+							<ul class="wc_payment_methods payment_methods methods">
+								<?php
+									if ( ! empty( $available_gateways ) ) {
+										foreach ( $available_gateways as $gateway ) {
+											wc_get_template( 'checkout/payment-method.php', array( 'gateway' => $gateway ) );
+										}
+									} else {
+										echo '<li class="woocommerce-notice woocommerce-notice--info woocommerce-info">' . apply_filters( 'woocommerce_no_available_payment_methods_message', WC()->customer->get_billing_country() ? __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ) : __( 'Please fill in your details above to see available payment methods.', 'woocommerce' ) ) . '</li>';
+									}
+								?>
+							</ul>
+						<?php endif; ?>
 
 
+		            </div>
 
-
-
-
-		<div class="col-2">
-			<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+		        </div>
+		    </div>
 		</div>
+
 		
 
 		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
 	<?php endif; ?>
 
-	<h3 id="order_review_heading"><?php _e( 'Your order', 'woocommerce' ); ?></h3>
+	<!-- 
+		<h3 id="order_review_heading"><?php _e( 'Your order', 'woocommerce' ); ?></h3> 
+	-->
 
 	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
-	<div id="order_review" class="woocommerce-checkout-review-order">
+	<div id="order_review" class="woocommerce-checkout-review-order wrap_checkout_total">
 		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 	</div>
 
@@ -78,10 +126,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 
 
-
+<!-- 
 
 <div class="wrap_checkout">
-    <div class="item_checkout">
+	<div class="item_checkout">
         <div class="title_checkout">
             <p>1  Контактная информация</p>
             <a href="checkout.html#" class="edit_checkout">Редактировать</a>
@@ -203,7 +251,11 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
         </div>
     </div>
-</div>
+</div> -->
+
+
+<!-- 
+
 <div class="wrap_checkout_total">
     <div class="left_checkout_total">
         <div class="product_mod_bask">
@@ -258,7 +310,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
         </div>
         <a href="checkout.html#" class="orng_btn">Оформить заказ</a>
     </div>
-</div>
+</div> -->
             
 	
 

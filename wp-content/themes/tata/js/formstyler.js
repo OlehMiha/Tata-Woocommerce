@@ -350,8 +350,8 @@
 						.data(att.data)
 					;
 
-					// el.after(number).prependTo(number).wrap('<div class="jq-number__field"></div>');
-					// if (el.is(':disabled')) number.addClass('disabled');
+					//el.after(number).prependTo(number).wrap('<div class="jq-number__field"></div>');
+					//if (el.is(':disabled')) number.addClass('disabled');
 
 					var min,
 							max,
@@ -398,9 +398,6 @@
 						} else {
 							el.val(newValue);
 						}
-						el.trigger('change');
-						$('[name="update_cart"]').trigger('click');
-
 					};
 
 					if (!number.is('.disabled')) {
@@ -1150,23 +1147,21 @@
 
 }));
 
-$(".jq-number__spin").click(function(event) {
+//  $(".jq-number__spin").click(function(event) {
 
-	var val = Number($(".jq-number__field input").val());
-	if($(this).hasClass('minus'))
-	{
-		if(val>1){
-			val = val - 1;
-		}
-	} 
-	else if($(this).hasClass('plus'))
-	{
-		val = val + 1;
-	}
-	$(".jq-number__field input").val(Number(val));
+//   var val = Number($(this).parent(".jq-number").children("input").val());
+//   if($(this).hasClass("minus"))
+//   {
+//     if(val>1){
+//       val = val - 1;
+//     }
+//   } 
+//   else if($(this).hasClass("plus"))
+//   {
+//     val = val + 1;
+//   }
+//   $(this).parent(".jq-number").children("input").val(Number(val));
 
-	var e = jQuery.Event("keypress");
-	e.which = 13; // # Some key code value
-	$('[name="update_cart"]').removeAttr('disabled');
-	$('[name="update_cart"]').trigger('click');
-});
+//   $("[name=update_cart]").removeAttr("disabled");
+//   $("[name=update_cart]").trigger("click");
+// });

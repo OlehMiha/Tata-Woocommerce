@@ -270,7 +270,6 @@ body{
 
 .logo{
     width: 230px;
-    height: 86px;
     float: left;
 }
 
@@ -921,10 +920,6 @@ h5{
 .actual_price{
     font-size: 18px;
     font-weight: 700;
-}
-
-.actual_price.actual_price_one {
-    margin-top: 26px;
 }
 
 .orng_btn{

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<table class="shop_table woocommerce-checkout-review-order-table">
+<!-- <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
 		<tr>
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
@@ -110,4 +110,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
 
 	</tfoot>
-</table>
+</table> -->
+<?php do_action( 'woocommerce_before_cart_contents' ); ?>
+<div class="left_checkout_total">
+<?php
+foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+	$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+	$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+	if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+		$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+		?>				
+            <div class="product_mod_bask">
+				<?php
+					$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+
+					if ( ! $product_permalink ) {
+						echo $thumbnail;
+					} else {
+						printf( '<a href="%s" class="product_mod_img">%s</a>', esc_url( $product_permalink ), $thumbnail );
+					}
+				?>					<?php
+					if ( ! $product_permalink ) {
+						echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;';
+					} else {
+						echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s" class="product_mod_title">%s', esc_url( $product_permalink ), $_product->get_title() ), $cart_item, $cart_item_key, '</a>' );
+						echo "<br/> " . $cart_item['quantity'] . " шт.";
+					}
+
+					// Meta data
+					echo wc_get_formatted_cart_item_data( $cart_item );
+
+					// Backorder notification
+					if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
+						echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
+					}
+				?></a>
+
+                <div class="product_mod_price">
+                    						<?php
+					echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
+				?>
+                </div>
+        </div>
+
+		<?php
+	}
+} ?>
+</div>
+<?php
+do_action( 'woocommerce_cart_contents' );
+?>
+

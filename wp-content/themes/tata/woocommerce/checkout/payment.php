@@ -23,8 +23,8 @@ if ( ! is_ajax() ) {
 	do_action( 'woocommerce_review_order_before_payment' );
 }
 ?>
-<div id="payment" class="woocommerce-checkout-payment">
-	<?php if ( WC()->cart->needs_payment() ) : ?>
+<div id="payment" class="woocommerce-checkout-payment checkout_total">
+	 <?php if ( WC()->cart->needs_payment() ) : ?>
 		<ul class="wc_payment_methods payment_methods methods">
 			<?php
 				if ( ! empty( $available_gateways ) ) {
@@ -45,14 +45,112 @@ if ( ! is_ajax() ) {
 
 		<?php wc_get_template( 'checkout/terms.php' ); ?>
 
-		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
+		<!-- <?php do_action( 'woocommerce_review_order_before_submit' ); ?>
 
 		<?php echo apply_filters( 'woocommerce_order_button_html', '<input type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '" />' ); ?>
 
-		<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
+		<?php do_action( 'woocommerce_review_order_after_submit' ); ?> -->
 
 		<?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
 	</div>
+	
+
+	<div class="item_checkout_total cart_totals <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
+
+	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
+
+	<h5><?php _e( 'Cart totals', 'woocommerce' ); ?></h5>
+
+	<table class="shop_table shop_table_responsive table_checkout_total">
+		<tr>
+            <td>Товаров в корзине</td>
+            <td><p><?php echo sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></p></td>
+        </tr>
+		<tr>
+			<td><?php _e( 'Subtotal', 'woocommerce' ); ?></td>
+			<td data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>"><?php wc_cart_totals_subtotal_html(); ?></td>
+		</tr>
+
+		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
+			<tr class="cart-discount coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
+				<td><?php wc_cart_totals_coupon_label( $coupon ); ?></td>
+				<td data-title="<?php echo esc_attr( wc_cart_totals_coupon_label( $coupon, false ) ); ?>"><?php wc_cart_totals_coupon_html( $coupon ); ?></td>
+			</tr>
+		<?php endforeach; ?>
+
+		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+
+			<?php do_action( 'woocommerce_cart_totals_before_shipping' ); ?>
+
+			<tr>
+                <td>Стоимость доставки</td>
+                <td><p><?php wc_cart_totals_shipping_html(); ?></p></td>
+            </tr>
+
+			<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
+
+
+
+		<?php elseif ( WC()->cart->needs_shipping() && 'yes' === get_option( 'woocommerce_enable_shipping_calc' ) ) : ?>
+
+			<tr class="shipping">
+				<td><?php _e( 'Shipping', 'woocommerce' ); ?></td>
+				<td data-title="<?php esc_attr_e( 'Shipping', 'woocommerce' ); ?>"><?php woocommerce_shipping_calculator(); ?></td>
+			</tr>
+
+		<?php endif; ?>
+
+		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
+			<tr class="fee">
+				<td><?php echo esc_html( $fee->name ); ?></td>
+				<td data-title="<?php echo esc_attr( $fee->name ); ?>"><?php wc_cart_totals_fee_html( $fee ); ?></td>
+			</tr>
+		<?php endforeach; ?>
+
+		<?php if ( wc_tax_enabled() && ! WC()->cart->display_prices_including_tax() ) :
+			$taxable_address = WC()->customer->get_taxable_address();
+			$estimated_text  = WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping()
+					? sprintf( ' <small>' . __( '(estimated for %s)', 'woocommerce' ) . '</small>', WC()->countries->estimated_for_prefix( $taxable_address[0] ) . WC()->countries->countries[ $taxable_address[0] ] )
+					: '';
+
+			if ( 'itemized' === get_option( 'woocommerce_tax_total_display' ) ) : ?>
+				<?php foreach ( WC()->cart->get_tax_totals() as $code => $tax ) : ?>
+					<tr class="tax-rate tax-rate-<?php echo sanitize_title( $code ); ?>">
+						<td><?php echo esc_html( $tax->label ) . $estimated_text; ?></td>
+						<td data-title="<?php echo esc_attr( $tax->label ); ?>"><?php echo wp_kses_post( $tax->formatted_amount ); ?></td>
+					</tr>
+				<?php endforeach; ?>
+			<?php else : ?>
+				<tr class="tax-total">
+					<td><?php echo esc_html( WC()->countries->tax_or_vat() ) . $estimated_text; ?></td>
+					<td data-title="<?php echo esc_attr( WC()->countries->tax_or_vat() ); ?>"><?php wc_cart_totals_taxes_total_html(); ?></td>
+				</tr>
+			<?php endif; ?>
+		<?php endif; ?>
+
+		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
+
+		<tr class="order-total">
+			<td><?php _e( 'Total', 'woocommerce' ); ?></td>
+			<td data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>"><?php wc_cart_totals_order_total_html(); ?></td>
+		</tr>
+
+		<?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>
+
+	</table>
+
+	
+
+	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
+
+</div>
+	<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
+
+	<?php echo apply_filters( 'woocommerce_order_button_html', '<input type="submit" class="orng_btn checkout-button button alt wc-forward" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '" />' ); ?>
+
+	<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
+
+
 </div>
 <?php
 if ( ! is_ajax() ) {

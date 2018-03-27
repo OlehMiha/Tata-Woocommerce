@@ -38,9 +38,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php else : ?>
 
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
+			<div class="checkout_success">
+	            <h5>Ваш заказ успешно сформирован</h5>
+	            <!-- <p>Спасибо за заказ. Наш менеджер свяжется с вами в ближайшее время.</p> -->
+	            
+				<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+			</div>
 
-			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+			<!-- <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
 				<li class="woocommerce-order-overview__order order">
 					<?php _e( 'Order number:', 'woocommerce' ); ?>
@@ -71,16 +76,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</li>
 				<?php endif; ?>
 
-			</ul>
+			</ul> -->
 
 		<?php endif; ?>
 
-		<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
-		<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
-
 	<?php else : ?>
-
-		<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+        <div class="checkout_success">
+            <h5>Ваш заказ успешно сформирован</h5>
+            <!-- <p>Спасибо за заказ. Наш менеджер свяжется с вами в ближайшее время.</p> -->
+            
+			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+		</div>
 
 	<?php endif; ?>
 

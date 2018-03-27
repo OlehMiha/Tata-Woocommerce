@@ -114,7 +114,27 @@ function woocommerce_template_loop_product_link_close() {
 
 add_filter('woocommerce_add_to_cart_fragments', 'change_add_to_cart',35);
 function change_add_to_cart($arr){
-  $html = '<span>' . sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count()) . '</span>';
+  $html = '<span>' . sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count()) . '
+<script>
+  $(".jq-number__spin").click(function(event) {
+
+  var val = Number($(this).parent(".jq-number").find("input").val());
+  if($(this).hasClass("minus"))
+  {
+    if(val>1){
+      val = val - 1;
+    }
+  } 
+  else if($(this).hasClass("plus"))
+  {
+    val = val + 1;
+  }
+  $(this).parent(".jq-number").find("input").val(Number(val));
+
+  $("[name=update_cart]").removeAttr("disabled");
+  $("[name=update_cart]").trigger("click");
+});
+</script></span>';
 
   return['div.basket span' => $html];
 }
@@ -147,7 +167,7 @@ function woocommerce_form_field( $key, $args, $value = null ) {
 
     if ( $args['required'] ) {
       $args['class'][] = 'validate-required';
-      $required        = ' <abbr class="required" title="' . esc_attr__( 'required', 'woocommerce' ) . '">*</abbr>';
+      $required        = ' <b class="required" title="' . esc_attr__( 'required', 'woocommerce' ) . '">*</b>';
     } else {
       $required = '';
     }
@@ -191,62 +211,9 @@ function woocommerce_form_field( $key, $args, $value = null ) {
     $field           = '';
     $label_id        = $args['id'];
     $sort            = $args['priority'] ? $args['priority'] : '';
-    $field_container = '<p class="form-row %1$s" id="%2$s" data-priority="' . esc_attr( $sort ) . '">%3$s</p>';
+    $field_container = '%3$s';
 
     switch ( $args['type'] ) {
-      case 'country':
-        $countries = 'shipping_country' === $key ? WC()->countries->get_shipping_countries() : WC()->countries->get_allowed_countries();
-
-        if ( 1 === count( $countries ) ) {
-
-          $field .= '<strong>' . current( array_values( $countries ) ) . '</strong>';
-
-          $field .= '<input type="hidden" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" value="' . current( array_keys( $countries ) ) . '" ' . implode( ' ', $custom_attributes ) . ' class="country_to_state" readonly="readonly" />';
-
-        } else {
-
-          $field = '<select name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" class="country_to_state country_select ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" ' . implode( ' ', $custom_attributes ) . '><option value="">' . esc_html__( 'Select a country&hellip;', 'woocommerce' ) . '</option>';
-
-          foreach ( $countries as $ckey => $cvalue ) {
-            $field .= '<option value="' . esc_attr( $ckey ) . '" ' . selected( $value, $ckey, false ) . '>' . $cvalue . '</option>';
-          }
-
-          $field .= '</select>';
-
-          $field .= '<noscript><button type="submit" name="woocommerce_checkout_update_totals" value="' . esc_attr__( 'Update country', 'woocommerce' ) . '">' . esc_html__( 'Update country', 'woocommerce' ) . '</button></noscript>';
-
-        }
-
-        break;
-      case 'state':
-        /* Get country this state field is representing */
-        $for_country = isset( $args['country'] ) ? $args['country'] : WC()->checkout->get_value( 'billing_state' === $key ? 'billing_country' : 'shipping_country' );
-        $states      = WC()->countries->get_states( $for_country );
-
-        if ( is_array( $states ) && empty( $states ) ) {
-
-          $field_container = '<p class="form-row %1$s" id="%2$s" style="display: none">%3$s</p>';
-
-          $field .= '<input type="hidden" class="hidden" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" value="" ' . implode( ' ', $custom_attributes ) . ' placeholder="' . esc_attr( $args['placeholder'] ) . '" readonly="readonly" />';
-
-        } elseif ( ! is_null( $for_country ) && is_array( $states ) ) {
-
-          $field .= '<select name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" class="state_select ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" ' . implode( ' ', $custom_attributes ) . ' data-placeholder="' . esc_attr( $args['placeholder'] ) . '">
-            <option value="">' . esc_html__( 'Select a state&hellip;', 'woocommerce' ) . '</option>';
-
-          foreach ( $states as $ckey => $cvalue ) {
-            $field .= '<option value="' . esc_attr( $ckey ) . '" ' . selected( $value, $ckey, false ) . '>' . $cvalue . '</option>';
-          }
-
-          $field .= '</select>';
-
-        } else {
-
-          $field .= '<input type="text" class="tp_inp input-text ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" value="' . esc_attr( $value ) . '"  placeholder="' . esc_attr( $args['placeholder'] ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" ' . implode( ' ', $custom_attributes ) . ' />';
-
-        }
-
-        break;
       case 'textarea':
         $field .= '<textarea name="' . esc_attr( $key ) . '" class="tp_txtarea input-text ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" id="' . esc_attr( $args['id'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" ' . ( empty( $args['custom_attributes']['rows'] ) ? ' rows="2"' : '' ) . ( empty( $args['custom_attributes']['cols'] ) ? ' cols="5"' : '' ) . implode( ' ', $custom_attributes ) . '>' . esc_textarea( $value ) . '</textarea>';
 
@@ -261,8 +228,15 @@ function woocommerce_form_field( $key, $args, $value = null ) {
       case 'email':
       case 'tel':
       case 'number':
-        $field .= '<input type="' . esc_attr( $args['type'] ) . '" class="input-text ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '"  value="' . esc_attr( $value ) . '" ' . implode( ' ', $custom_attributes ) . ' />';
-
+        $field .= '<input type="' . esc_attr( $args['type'] ) . '" class="tp_inp input-text ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '"  value="' . esc_attr( $value ) . '" ' . implode( ' ', $custom_attributes ) . ' />';
+        if($args['id'] == 'billing_address_1' || $args['id'] == 'billing_new_dom' || $args['id'] == 'billing_new_korpus'){
+          $field .='</div>';
+        } else if ($args['id'] == 'billing_new_kvartira') {
+          $field .='</div>
+                </div>
+                <div><a href="checkout.html#" class="add_comm">Добавить комментарий к заказу</a></div>
+                ';
+        }
         break;
       case 'select':
         $field   = '';
@@ -280,9 +254,12 @@ function woocommerce_form_field( $key, $args, $value = null ) {
             $options .= '<option value="' . esc_attr( $option_key ) . '" ' . selected( $value, $option_key, false ) . '>' . esc_attr( $option_text ) . '</option>';
           }
 
-          $field .= '<select name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" class="select ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" ' . implode( ' ', $custom_attributes ) . ' data-placeholder="' . esc_attr( $args['placeholder'] ) . '">
+          $field .= '<div class="tp_select"><select name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" class="select ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" ' . implode( ' ', $custom_attributes ) . ' data-placeholder="' . esc_attr( $args['placeholder'] ) . '">
               ' . $options . '
-            </select>';
+            </select></div>';
+            if($args['id'] == 'billing_city'){
+              $field .='</div>';
+            }
         }
 
         break;
@@ -303,7 +280,66 @@ function woocommerce_form_field( $key, $args, $value = null ) {
       $field_html = '';
 
       if ( $args['label'] && 'checkbox' !== $args['type'] ) {
-        $field_html .= '<label for="' . esc_attr( $label_id ) . '" class="' . esc_attr( implode( ' ', $args['label_class'] ) ) . '">' . $args['label'] . $required . '</label>';
+        if($args['id'] == 'billing_first_name'){
+
+          $field_html .= '<div class="item_checkout  is_open">
+        <div class="title_checkout">
+            <p>1  Контактная информация</p>
+            <a href="#" class="edit_checkout">Редактировать</a>
+        </div>
+        <div class="checkout">
+            <div class="form_contacts">
+                <div class="form">';
+          $field_html .= '<p>' . $args['label'] . $required . '</p>';
+        }
+        else if($args['id'] == 'billing_city'){
+
+          $field_html .= '<p><span>Ваш запрос будет обработан в рабочее время. Обязательные поля отмечены <b>*</b></span></p>
+                    <input type="submit" class="orng_btn" value="Продолжить" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item_checkout  is_open">
+        <div class="title_checkout">
+            <p>2  способ доставки</p>
+            <a href="#" class="edit_checkout">Редактировать</a>
+        </div>
+        <div class="checkout">
+            <div class="delivery_method">
+                <div class="city_del">';
+          $field_html .= $args['label'] . $required;
+        } 
+        else if($args['id'] == 'billing_address_1'){
+
+          $field_html .= '<div class="ckeck_delivery_method">
+                    <label><input type="radio" name="radio" />
+                        <div class="del_label">
+                            <h5>Доставка курьером </h5>
+                            <p>Ближайшая дата: <span>10.05</span></p>
+                            <p>Стоимость: <span>10,80 руб.</span></p>
+                        </div>
+                    </label>
+                    <label><input type="radio" name="radio" />
+                        <div class="del_label">
+                            <h5>Самовывоз </h5>
+                            <p>Стоимость: <span>0 руб.</span></p>
+                        </div>
+                    </label>
+                </div>
+                <h5>Адрес доставки</h5>
+                <div class="address_del">
+                    <div class="inp_addr">';
+          $field_html .= '<p>' . $args['label'] . $required . '</p>';
+        }
+        else if($args['id'] == 'billing_new_dom' || $args['id'] == 'billing_new_korpus' || $args['id'] == 'billing_new_kvartira'){
+
+          $field_html .= '<div class="inp_addr">';
+          $field_html .= '<p>' . $args['label'] . $required . '</p>';
+        } 
+        else {
+          $field_html .= '<p>' . $args['label'] . $required . '</p>';
+        }
       }
 
       $field_html .= $field;
@@ -323,6 +359,10 @@ function woocommerce_form_field( $key, $args, $value = null ) {
       return $field;
     } else {
       echo $field; // WPCS: XSS ok.
+
+      if($args['id'] == 'billing_new_kvartira'){
+        do_action( 'woocommerce_checkout_shipping' );
+      }
     }
   }
 
