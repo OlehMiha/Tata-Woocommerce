@@ -13,7 +13,7 @@ get_header(); // подключаем header.php ?>
                 <h4><?php the_title(); // заголовок поста ?></h4>
                 <div class="wrap_textpage">
                     <ul class="list_menu">
-				    <?php wp_nav_menu( array(
+                    <?php wp_nav_menu( array(
 						'theme_location'  => '',
 						'menu'            => 'pagesidebar', 
 						'container'       => '', 

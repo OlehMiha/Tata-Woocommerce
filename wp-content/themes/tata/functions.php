@@ -762,6 +762,6 @@ function true_peremeshhaem_jquery_v_futer() {
         wp_enqueue_script('jquery');  
  
 }
-add_filter( 'searchwp_live_search_hijack_get_search_form', '__return_false' )
+add_filter( 'searchwp_live_search_hijack_get_search_form', '__return_false' );
 
 ?>

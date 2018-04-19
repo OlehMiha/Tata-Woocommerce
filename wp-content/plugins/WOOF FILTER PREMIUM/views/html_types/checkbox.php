@@ -112,7 +112,7 @@ if (!function_exists('woof_draw_checkbox_childs'))
 
 }
 ?>
-<ul class="woof_list woof_list_checkbox">
+<div class="item_filter checkbox">
     <?php
     $woof_tax_values = array();
     $current_request = array();
@@ -196,13 +196,13 @@ if (!function_exists('woof_draw_checkbox_childs'))
             ?>
 
 
-
-            <li class="woof_term_<?php echo $term['term_id'] ?> <?php if ($hide_next_term_li): ?>woof_hidden_term<?php endif; ?>" <?php if ($this->settings['dispay_in_row'][$tax_slug] AND empty($term['childs'])): ?>style="display: inline-block !important;"<?php endif; ?>><input type="checkbox" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_checkbox_term woof_checkbox_term_<?php echo $term['term_id'] ?>" data-tax="<?php echo $tax_slug ?>" name="<?php echo $term['slug'] ?>" data-term-id="<?php echo $term['term_id'] ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> /><label class="woof_checkbox_label <?php if (in_array($term['slug'], $current_request)): ?>woof_checkbox_label_selected<?php endif; ?>" for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>"><?php
-                    if (has_filter('woof_before_term_name'))
-                        echo apply_filters('woof_before_term_name', $term, $taxonomy_info);
-                    else
-                        echo $term['name'];
-                    ?><?php echo $count_string ?></label>
+            <label class="woof_checkbox_label <?php if (in_array($term['slug'], $current_request)): ?>woof_checkbox_label_selected<?php endif; ?>" for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>"><?php
+                if (has_filter('woof_before_term_name'))
+                    echo apply_filters('woof_before_term_name', $term, $taxonomy_info);
+                else
+                    echo $term['name'];
+                ?><?php echo $count_string ?>
+            <input type="checkbox" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_checkbox_term woof_checkbox_term_<?php echo $term['term_id'] ?>" data-tax="<?php echo $tax_slug ?>" name="<?php echo $term['slug'] ?>" data-term-id="<?php echo $term['term_id'] ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> />
                 <?php
                 if (!empty($term['childs']))
                 {
@@ -210,8 +210,7 @@ if (!function_exists('woof_draw_checkbox_childs'))
                 }
                 ?>
                 <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $tax_slug ?>_<?php echo $term['slug'] ?>" />
-
-            </li>
+            </label>
 
 
             <?php
@@ -225,7 +224,7 @@ if (!function_exists('woof_draw_checkbox_childs'))
             <li class="woof_open_hidden_li"><?php WOOF_HELPER::draw_more_less_button('checkbox') ?></li>
             <?php endif; ?>
         <?php endif; ?>
-</ul>
+</div>
 <?php
 //we need it only here, and keep it in $_REQUEST for using in function for child items
 unset($_REQUEST['additional_taxes']);

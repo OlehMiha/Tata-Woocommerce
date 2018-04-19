@@ -47,19 +47,19 @@ get_header(); // подключаем header.php ?>
                 </div>
                 <ul class="list_advantage">
                     <li>
-                        <span><img src="/wp-content/themes/tata/img/advantage/1.png" alt="" /></span>
+                        <span><img src="<?php bloginfo('template_url'); ?>/img/advantage/1.png" alt="" /></span>
                         <p>Гарандия качества</p>
                     </li>
                     <li>
-                        <span><img src="/wp-content/themes/tata/img/advantage/2.png" alt="" /></span>
+                        <span><img src="<?php bloginfo('template_url'); ?>/img/advantage/2.png" alt="" /></span>
                         <p>Сервис от произодителя</p>
                     </li>
                     <li>
-                        <span><img src="/wp-content/themes/tata/img/advantage/3.png" alt="" /></span>
+                        <span><img src="<?php bloginfo('template_url'); ?>/img/advantage/3.png" alt="" /></span>
                         <p>Бесплатная доставка  по Минску</p>
                     </li>
                     <li>
-                        <span><img src="/wp-content/themes/tata/img/advantage/4.png" alt="" /></span>
+                        <span><img src="<?php bloginfo('template_url'); ?>/img/advantage/4.png" alt="" /></span>
                         <p>Скидка при комплексной покупке</p>
                     </li>
                 </ul>
@@ -181,18 +181,18 @@ get_header(); // подключаем header.php ?>
                 <div class="wrap_brand">
                     <div class="swiper-container swiper-container1">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><a href="/brand/britax/"><img src="/wp-content/themes/tata/img/brand/1.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/tinylove/"><img src="/wp-content/themes/tata/img/brand/2.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/mozhga/"><img src="/wp-content/themes/tata/img/brand/3.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/little-pony/"><img src="/wp-content/themes/tata/img/brand/4.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/avent/"><img src="/wp-content/themes/tata/img/brand/5.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/dr-browns/"><img src="/wp-content/themes/tata/img/brand/6.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/britax/"><img src="/wp-content/themes/tata/img/brand/1.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/tinylove"><img src="/wp-content/themes/tata/img/brand/2.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/mozhga/"><img src="/wp-content/themes/tata/img/brand/3.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/little-pony/"><img src="/wp-content/themes/tata/img/brand/4.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/avent/"><img src="/wp-content/themes/tata/img/brand/5.png" alt="" /></a></div>
-                            <div class="swiper-slide"><a href="/brand/dr-browns/"><img src="/wp-content/themes/tata/img/brand/6.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/britax/"><img src="<?php bloginfo('template_url'); ?>/img/brand/1.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/tinylove/"><img src="<?php bloginfo('template_url'); ?>/img/brand/2.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/mozhga/"><img src="<?php bloginfo('template_url'); ?>/img/brand/3.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/little-pony/"><img src="<?php bloginfo('template_url'); ?>/img/brand/4.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/avent/"><img src="<?php bloginfo('template_url'); ?>/img/brand/5.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/dr-browns/"><img src="<?php bloginfo('template_url'); ?>/img/brand/6.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/britax/"><img src="<?php bloginfo('template_url'); ?>/img/brand/1.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/tinylove"><img src="<?php bloginfo('template_url'); ?>/img/brand/2.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/mozhga/"><img src="<?php bloginfo('template_url'); ?>/img/brand/3.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/little-pony/"><img src="<?php bloginfo('template_url'); ?>/img/brand/4.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/avent/"><img src="<?php bloginfo('template_url'); ?>/img/brand/5.png" alt="" /></a></div>
+                            <div class="swiper-slide"><a href="/brand/dr-browns/"><img src="<?php bloginfo('template_url'); ?>/img/brand/6.png" alt="" /></a></div>
                         </div>
                     </div>
                     <div class="swiper-button-next swiper-button-next1"></div>

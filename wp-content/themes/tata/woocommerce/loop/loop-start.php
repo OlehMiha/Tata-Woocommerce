@@ -29,106 +29,18 @@
                         <div class="sidebar" id="sidebar">
 						<?php if (is_active_sidebar( 'sidebar' )) { // если в сайдбаре есть что выводить ?>
 
-	<?php dynamic_sidebar('sidebar'); // выводим сайдбар, имя определено в functions.php ?>
+                        	<?php dynamic_sidebar('sidebar'); // выводим сайдбар, имя определено в functions.php ?>
 
-<?php } ?>
-                            <div class="title_sidebar">
-                                Фильтр по параметрам
-                            </div>
-                            <div class="wrap_filter">
-                                <div class="title_filter">
-                                    <p>Производитель</p>
-                                </div>
-                                <div class="item_filter checkbox">
-                                    <label><input type="checkbox" /> Фея</label>
-                                    <label><input type="checkbox" /> Фея</label>
-                                    <label><input type="checkbox" /> Фея</label>
-                                    <label><input type="checkbox" /> Фея</label>
-                                    <label><input type="checkbox" /> Фея</label>
-                                    <a href="#" class="more_info">Еще <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                            <div class="wrap_filter">
-                                <div class="title_filter">
-                                    <p>Цена, бел. руб.</p>
-                                </div>
-                                <div class="item_filter">
-                                    <div class="wrap_range">
-                                        <div id="range" class="range"></div>
-                                        <div class="wrap_range_inp">
-                                            <div class="range_inp">
-                                                от
-                                                <label for="value-input6"></label><input id="value-input6">
-                                            </div>
-                                            <div class="range_inp">
-                                                до
-                                                <label for="value-input5"></label><input id="value-input5">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="wrap_filter">
-                                <div class="title_filter">
-                                    <p>     Тип</p>
-                                    <div class="tooltip tooltip-effect-1">
-                                        <span class="tooltip-item"><i class="fa fa-question-circle-o" aria-hidden="true"></i></span>
-                                        <div class="tooltip-content">
-                                            <div class="tooltip-text">
-                                                <span>Тип</span>
-                                                <p>Классическая кроватка - это кроватка с фиксированным размером спального места, в основном 120х60 см. Она рассчитана на детей от рождения до 4 лет.</p>
-                                                <p>Люлькой называют небольшую закрытую кроватку для новорожденного, рассчитанную на ребенка до года. Она часто имеет плотные тканевые стенки, мягкие борта, большой капюшон.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item_filter checkbox">
-                                    <label><input type="checkbox" />Классическая</label>
-                                    <label><input type="checkbox" /> Люлька</label>
-                                    <label><input type="checkbox" /> Приставная</label>
-                                    <label><input type="checkbox" /> Трансформер</label>
-                                    <label><input type="checkbox" /> Для дошкольника</label>
-                                </div>
-                            </div>
-                            <div class="wrap_filter">
-                                <div class="title_filter">
-                                    <p>Цвет</p>
-                                </div>
-                                <div class="item_filter checkbox">
-                                    <label><input type="checkbox" />Белый</label>
-                                    <label><input type="checkbox" />Серый</label>
-                                    <label><input type="checkbox" />Черный</label>
-                                    <label><input type="checkbox" />Коричневый</label>
-                                    <label><input type="checkbox" />Береза</label>
-                                    <label><input type="checkbox" />Бежевый</label>
-                                    <label><input type="checkbox" />Розовый</label>
-                                    <a href="#" class="more_info">Свернуть</a>
-                                </div>
-                            </div>
-                            <div class="wrap_filter">
-                                <div class="title_filter">
-                                    <p>Тип днища</p>
-                                    <div class="tooltip tooltip-effect-1">
-                                        <span class="tooltip-item"><i class="fa fa-question-circle-o" aria-hidden="true"></i></span>
-                                        <div class="tooltip-content">
-                                            <div class="tooltip-text">
-                                                <span>Тип</span>
-                                                <p>Классическая кроватка - это кроватка с фиксированным размером спального места, в основном 120х60 см. Она рассчитана на детей от рождения до 4 лет.</p>
-                                                <p>Люлькой называют небольшую закрытую кроватку для новорожденного, рассчитанную на ребенка до года. Она часто имеет плотные тканевые стенки, мягкие борта, большой капюшон.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item_filter checkbox">
-                                    <label><input type="checkbox" />Реечное</label>
-                                    <label><input type="checkbox" />Сплошное</label>
-                                </div>
-                            </div>
-                            <button class="reset_filter">Сбросить фильтры</button>
+                        <?php } ?>
+                            
                         </div>
                     </div>
-                    <div class="catalog" id="catalog">
+
+
+
+
+
+<div class="catalog" id="catalog">
                         <div class="title_page">
                             <img src="/wp-content/themes/tata/img/2.png" alt="" />
                             <p><?php woocommerce_page_title(); ?></p>

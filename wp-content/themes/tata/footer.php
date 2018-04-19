@@ -1,7 +1,7 @@
  <div class="footer">
         <div class="container">
             <div class="left_ftr">
-                <a href="/" class="logo_ftr"><img src="/wp-content/themes/tata/img/logo.png" alt="" /></a>
+                <a href="<?php echo home_url(); ?>" class="logo_ftr"><img src="/wp-content/themes/tata/img/logo.png" alt="" /></a>
                 <div class="copyrighted"><?php echo $mytheme['copy']; ?></div>
             </div>
             <div class="catalog_nav">

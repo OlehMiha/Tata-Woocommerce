@@ -62,7 +62,7 @@ table.characteristics tbody tr td {
     display: none;
 }
 .info_product table.characteristics td {
-    padding: 3px 0;
+    padding: 1px 0;
 }
 i.fa.fa-chevron-down {
     color: #277fbd;
